@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glosario - Quiz Test</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos específicos para el glosario */
+        .glossary-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .glossary-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .glossary-header h1 {
+            font-size: 2.5em;
+            color: #6fa8dc;
+            margin-bottom: 10px;
+        }
+
+        .glossary-header p {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Letras de navegación rápida */
+        .letter-nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: sticky;
+            top: 20px;
+            z-index: 10;
+        }
+
+        .letter-link {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .letter-link:hover {
+            background: #6fa8dc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(111, 168, 220, 0.4);
+        }
+
+        /* Tarjetas de términos */
+        .terms-section {
+            margin-bottom: 40px;
+        }
+
+        .letter-section {
+            margin-bottom: 30px;
+            scroll-margin-top: 100px;
+        }
+
+        .letter-title {
+            font-size: 2.5em;
+            font-weight: 800;
+            color: #6fa8dc;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(111, 168, 220, 0.3);
+        }
+
+        .terms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .term-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 20px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(111, 168, 220, 0.2);
+            cursor: pointer;
+        }
+
+        .term-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+            border-color: rgba(111, 168, 220, 0.5);
+        }
+
+        .term-title {
+            font-size: 1.25em;
+            font-weight: 700;
+            color: #1E293B;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .term-badge {
+            background: #6fa8dc;
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.7em;
+            font-weight: 600;
+        }
+
+        .term-definition {
+            color: #4a5568;
+            line-height: 1.6;
+            font-size: 0.95em;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 100px;
+            width: 50px;
+            height: 50px;
+            background: #6fa8dc;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            z-index: 20;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(111, 114, 220, 0.4);
+            background: #7fb8ec;
+        }
+
+        @media (max-width: 768px) {
+            .terms-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .letter-nav {
+                gap: 8px;
+            }
+            
+            .letter-link {
+                width: 35px;
+                height: 35px;
+                font-size: 1em;
+            }
+            
+            .back-to-top {
+                right: 20px;
+                bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-book-open"></i> Glosario de Términos</h1>
+            <p><i class="fas fa-lightbulb"></i> Referencia rápida de conceptos importantes sobre desarrollo web, bases de datos y seguridad</p>
+        </header>
+
+        <div id="floating-menu"></div>
+
+        <div class="glossary-container">
+            <div class="letter-nav" id="letterNav"></div>
+            <div class="terms-section" id="glossaryContent"></div>
+            <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
+        </div>
+    </div>
+
+    <script>
+        const glossaryData = {
+            'A': [
+                { term: 'ABAC (Attribute-Based Access Control)', definition: 'Modelo de control de acceso que otorga permisos basados en atributos del usuario, del recurso y del entorno.' },
+                { term: 'ACID', definition: 'Conjunto de propiedades que garantizan que las transacciones de bases de datos sean fiables: Atomicidad, Consistencia, Aislamiento y Durabilidad.' },
+                { term: 'AJAX (Asynchronous JavaScript and XML)', definition: 'Técnica que permite enviar y recibir datos de un servidor de forma asíncrona sin recargar la página completa.' },
+                { term: 'Alcance de una variable (Scope)', definition: 'Región del programa donde una variable es accesible (global, local o de bloque).' },
+                { term: 'API (Application Programming Interface)', definition: 'Conjunto de definiciones y protocolos que permiten que dos aplicaciones se comuniquen entre sí.' },
+                { term: 'Array (Arreglo)', definition: 'Tipo de dato compuesto que almacena múltiples valores bajo un mismo nombre, indexados por números o claves.' },
+                { term: 'ASP.NET', definition: 'Framework de Microsoft para construir páginas y aplicaciones web, parte del ecosistema .NET.' },
+                { term: 'Atom', definition: 'Formato de sindicación basado en XML, diseñado como alternativa más robusta y flexible a RSS.' },
+                { term: 'Autenticación', definition: 'Proceso de verificar la identidad de un usuario (quién es).' },
+                { term: 'Autorización', definition: 'Proceso de determinar qué permisos y recursos puede acceder un usuario autenticado (qué puede hacer).' }
+            ],
+            'B': [
+                { term: 'Base de datos NoSQL', definition: 'Tipo de base de datos sin esquema fijo, diseñada para escalabilidad horizontal y manejo de grandes volúmenes de datos no estructurados.' },
+                { term: 'Base de datos relacional (SQL)', definition: 'Tipo de base de datos basada en esquemas fijos, tablas relacionadas e integridad referencial.' },
+                { term: 'Blade', definition: 'Sistema de plantillas utilizado por el framework Laravel (PHP).' },
+                { term: 'Bootstrap', definition: 'Framework CSS popular que ofrece un sistema de grid y componentes predefinidos para diseño responsive.' },
+                { term: 'Bucle (Loop)', definition: 'Estructura de control que repite un bloque de código mientras se cumpla una condición.' }
+            ],
+            'C': [
+                { term: 'Caché (Caching)', definition: 'Técnica que almacena resultados de consultas o datos frecuentemente accedidos en memoria para mejorar el rendimiento.' },
+                { term: 'CGI (Common Gateway Interface)', definition: 'Protocolo antiguo que permite al servidor web ejecutar programas externos para generar contenido dinámico.' },
+                { term: 'CI/CD (Continuous Integration/Continuous Deployment)', definition: 'Prácticas de integración continua y despliegue continuo para automatizar la construcción, prueba y despliegue de software.' },
+                { term: 'Cierre (Closure)', definition: 'Función que tiene acceso al ámbito léxico de la función que la contiene, incluso después de que esa función haya terminado.' },
+                { term: 'Control de versiones', definition: 'Sistema que gestiona los cambios en el código fuente a lo largo del tiempo (ej. Git).' },
+                { term: 'Cookie', definition: 'Pequeño archivo de texto que un servidor web almacena en el navegador del usuario para mantener estado.' },
+                { term: 'CRUD (Create, Read, Update, Delete)', definition: 'Las cuatro operaciones básicas sobre datos: crear, leer, actualizar y eliminar.' },
+                { term: 'CSRF (Cross-Site Request Forgery)', definition: 'Ataque que engaña a un usuario autenticado para que realice acciones no deseadas en una aplicación web.' },
+                { term: 'CSS (Cascading Style Sheets)', definition: 'Lenguaje utilizado para el estilo y diseño visual de páginas web.' }
+            ],
+            'D': [
+                { term: 'Deserialización', definition: 'Proceso inverso a la serialización: convertir datos de un formato (JSON/XML) de vuelta a objetos o estructuras de datos.' },
+                { term: 'Django', definition: 'Framework de Python de alto nivel que incluye muchas funcionalidades integradas ("baterías incluidas").' },
+                { term: 'DOM (Document Object Model)', definition: 'Representación en forma de árbol de los elementos de una página web, que puede ser manipulada con JavaScript.' },
+                { term: 'Driver (Controlador)', definition: 'Software que permite a una aplicación interactuar con una base de datos específica.' }
+            ],
+            'E': [
+                { term: 'empty()', definition: 'Función de PHP que comprueba si una variable está vacía (ej. "", 0, NULL, false, array vacío).' },
+                { term: 'Endpoint', definition: 'Punto de contacto específico (URL) a través del cual se puede interactuar con un servicio web o API.' },
+                { term: 'Envelope (Sobre SOAP)', definition: 'Elemento raíz de un mensaje SOAP que define el inicio y fin del mensaje.' },
+                { term: 'Escapado de datos', definition: 'Técnica que convierte caracteres especiales en entidades HTML para prevenir ataques XSS.' },
+                { term: 'Express.js', definition: 'Framework minimalista y flexible para Node.js, ampliamente usado para construir APIs y aplicaciones web.' }
+            ],
+            'F': [
+                { term: 'FastCGI', definition: 'Mejora de CGI que mantiene procesos persistentes, más rápido y eficiente que el CGI original.' },
+                { term: 'Fetch API', definition: 'API moderna de JavaScript para realizar peticiones HTTP asíncronas, reemplazando a XMLHttpRequest.' },
+                { term: 'Framework', definition: 'Conjunto de herramientas, bibliotecas y convenciones que facilitan el desarrollo de aplicaciones.' },
+                { term: 'Función anónima', definition: 'Función que no tiene un nombre asignado, utilizada comúnmente como callback.' }
+            ],
+            'G': [
+                { term: 'GET', definition: 'Método HTTP que envía datos en la URL. Adecuado para búsquedas o datos no sensibles.' },
+                { term: 'Git', definition: 'Sistema de control de versiones distribuido, el más popular actualmente.' },
+                { term: 'GraphQL', definition: 'Lenguaje de consulta para APIs que permite a los clientes solicitar exactamente los datos que necesitan.' }
+            ],
+            'H': [
+                { term: 'HTML (HyperText Markup Language)', definition: 'Lenguaje de marcas estándar para estructurar el contenido de páginas web.' },
+                { term: 'HTML5', definition: 'Última versión de HTML, que incorpora etiquetas semánticas, multimedia y gráficos.' },
+                { term: 'htmlspecialchars()', definition: 'Función de PHP que convierte caracteres especiales en entidades HTML para prevenir XSS.' },
+                { term: 'HTTP (Hypertext Transfer Protocol)', definition: 'Protocolo para la transferencia de información en la web. Es sin estado.' },
+                { term: 'HTTPS (HTTP Secure)', definition: 'Versión segura de HTTP que utiliza SSL/TLS para encriptar las comunicaciones.' }
+            ],
+            'I': [
+                { term: 'IDE (Integrated Development Environment)', definition: 'Entorno de desarrollo integrado que incluye editor, depurador, herramientas de diseño, etc.' },
+                { term: 'include', definition: 'Función de PHP que incluye un archivo; si no existe, muestra una advertencia pero el script continúa.' },
+                { term: 'isset()', definition: 'Función de PHP que comprueba si una variable está definida y no es NULL.' },
+                { term: 'Inyección SQL (SQL Injection)', definition: 'Vulnerabilidad que permite a un atacante manipular consultas SQL inyectando código malicioso.' }
+            ],
+            'J': [
+                { term: 'Java Servlets', definition: 'Clases Java que extienden las capacidades de los servidores web, manejando solicitudes y respuestas.' },
+                { term: 'JavaScript', definition: 'Lenguaje de programación que se ejecuta en el navegador para añadir interactividad y contenido dinámico.' },
+                { term: 'JDBC (Java Database Connectivity)', definition: 'API estándar de Java para conectar y ejecutar consultas con bases de datos relacionales.' },
+                { term: 'Jinja2', definition: 'Sistema de plantillas para Python, utilizado por frameworks como Flask.' },
+                { term: 'jQuery', definition: 'Biblioteca de JavaScript que simplifica la manipulación del DOM, eventos y llamadas AJAX.' },
+                { term: 'JSP (JavaServer Pages)', definition: 'Tecnología que permite combinar HTML con código Java para generar contenido web dinámico.' },
+                { term: 'JSON (JavaScript Object Notation)', definition: 'Formato ligero de intercambio de datos, estándar en APIs RESTful.' },
+                { term: 'JWT (JSON Web Token)', definition: 'Token estándar para autenticación y autorización, autónomo y validable sin almacenamiento central.' }
+            ],
+            'L': [
+                { term: 'Laravel', definition: 'Framework de PHP con sintaxis expresiva y herramientas para autenticación, enrutamiento y caché.' },
+                { term: 'Lazy loading (Carga perezosa)', definition: 'Técnica que retrasa la carga de datos hasta el momento en que son estrictamente necesarios.' },
+                { term: 'LDAP (Lightweight Directory Access Protocol)', definition: 'Protocolo de red para consultar y modificar directorios de información (usuarios, grupos).' },
+                { term: 'localStorage', definition: 'Mecanismo de almacenamiento web (HTML5) que persiste incluso después de cerrar el navegador.' }
+            ],
+            'M': [
+                { term: 'Método HTTP', definition: 'Verbos que indican la acción a realizar en una petición HTTP (GET, POST, PUT, DELETE, etc.).' },
+                { term: 'Microservicio', definition: 'Arquitectura basada en pequeñas unidades funcionales de software que pueden desplegarse de manera independiente.' },
+                { term: 'Modelo (MVC)', definition: 'Componente del patrón MVC que maneja la lógica de negocio y las interacciones con la base de datos.' },
+                { term: 'Modelo N-Capas', definition: 'Arquitectura cliente-servidor que extiende el modelo de tres capas añadiendo más capas (servicios web, caché, colas).' },
+                { term: 'MVC (Modelo-Vista-Controlador)', definition: 'Patrón de diseño que separa la aplicación en tres componentes interconectados.' },
+                { term: 'mysqli_query()', definition: 'Función de PHP para ejecutar consultas MySQL utilizando la extensión MySQLi.' }
+            ],
+            'N': [
+                { term: 'Nginx', definition: 'Servidor web de alto rendimiento y bajo consumo de recursos, ideal para manejar muchas conexiones simultáneas.' },
+                { term: 'Node.js', definition: 'Entorno de ejecución de JavaScript en el servidor, basado en el motor V8 de Chrome.' },
+                { term: 'npm (Node Package Manager)', definition: 'Gestor de paquetes estándar para Node.js.' }
+            ],
+            'O': [
+                { term: 'OAuth', definition: 'Protocolo estándar de autorización que permite acceso delegado sin compartir credenciales.' },
+                { term: 'OpenID', definition: 'Estándar abierto para autenticación de usuarios, permite usar una única cuenta en múltiples servicios.' },
+                { term: 'ORM (Object-Relational Mapping)', definition: 'Técnica que abstrae la base de datos, permitiendo trabajar con objetos en lugar de SQL.' }
+            ],
+            'P': [
+                { term: 'Parámetro por defecto', definition: 'Parámetro de función que tiene un valor predeterminado si no se proporciona otro.' },
+                { term: 'Parámetro por referencia', definition: 'Parámetro que se pasa con el signo &, permitiendo modificar la variable original fuera de la función.' },
+                { term: 'Patrón', definition: 'Solución reutilizable a problemas comunes en diseño de software.' },
+                { term: 'PHP (PHP: Hypertext Preprocessor)', definition: 'Lenguaje de scripting de código abierto, ampliamente utilizado en desarrollo web.' },
+                { term: 'Pool de conexiones', definition: 'Conjunto de conexiones a base de datos mantenidas abiertas y reutilizables para múltiples solicitudes.' },
+                { term: 'POST', definition: 'Método HTTP que envía datos en el cuerpo de la solicitud. Ideal para datos sensibles o grandes cantidades.' },
+                { term: 'Prepared Statement (Sentencia preparada)', definition: 'Consulta SQL precompilada con marcadores de posición, previene inyección SQL.' },
+                { term: 'Principio de Menor Privilegio', definition: 'Principio de seguridad que otorga solo los permisos estrictamente necesarios.' }
+            ],
+            'R': [
+                { term: 'RBAC (Role-Based Access Control)', definition: 'Modelo de control de acceso basado en roles, donde los permisos se asignan a roles y los usuarios a roles.' },
+                { term: 'React', definition: 'Biblioteca de JavaScript para construir interfaces de usuario basadas en componentes reutilizables y Virtual DOM.' },
+                { term: 'require', definition: 'Función de PHP que incluye un archivo; si no existe, detiene el script con un error fatal.' },
+                { term: 'REST (Representational State Transfer)', definition: 'Estilo arquitectónico para diseñar APIs basado en HTTP y recursos identificados por URLs.' },
+                { term: 'ResultSet (Conjunto de resultados)', definition: 'Estructura de datos que almacena el resultado de una consulta SQL en JDBC.' },
+                { term: 'RSS (Really Simple Syndication)', definition: 'Formato basado en XML para distribuir contenido actualizado (noticias, blogs, podcasts).' },
+                { term: 'Ruby on Rails', definition: 'Framework de Ruby conocido por su eficiencia en desarrollo rápido y convención sobre configuración.' }
+            ],
+            'S': [
+                { term: 'Sesión (Session)', definition: 'Técnica de mantenimiento de estado que almacena datos en el servidor asociados a un ID único.' },
+                { term: 'sessionStorage', definition: 'Almacenamiento web (HTML5) que persiste solo durante la duración de la pestaña o sesión del navegador.' },
+                { term: 'Serialización', definition: 'Proceso de convertir objetos y estructuras de datos en un formato (JSON/XML) que puede ser almacenado o transmitido.' },
+                { term: 'SOAP (Simple Object Access Protocol)', definition: 'Protocolo basado en XML para intercambiar información estructurada en servicios web.' },
+                { term: 'SQL (Structured Query Language)', definition: 'Lenguaje estándar para gestionar y consultar bases de datos relacionales.' },
+                { term: 'Switch', definition: 'Estructura de control alternativa a if-else para múltiples condiciones basadas en el valor de una sola variable.' }
+            ],
+            'T': [
+                { term: 'Transacción (Transaction)', definition: 'Secuencia de operaciones que se ejecutan como una sola unidad lógica de trabajo (propiedades ACID).' },
+                { term: 'trim()', definition: 'Función de PHP que elimina espacios en blanco al inicio y final de una cadena.' },
+                { term: 'try-catch', definition: 'Estructura de control utilizada para manejar excepciones en PHP y otros lenguajes.' },
+                { term: 'Twig', definition: 'Sistema de plantillas para PHP, utilizado por frameworks como Symfony.' }
+            ],
+            'U': [
+                { term: 'UDDI (Universal Description, Discovery and Integration)', definition: 'Estándar basado en XML que funciona como un directorio para publicar y descubrir servicios web.' },
+                { term: 'UPDATE', definition: 'Sentencia SQL utilizada para modificar datos existentes en una tabla.' }
+            ],
+            'V': [
+                { term: 'Variable', definition: 'Espacio de almacenamiento con un nombre simbólico asociado a un valor que puede cambiar durante la ejecución.' },
+                { term: 'Virtual DOM', definition: 'Representación en memoria del DOM real, utilizada por React para optimizar las actualizaciones de la interfaz.' },
+                { term: 'Vista (View)', definition: 'Componente del patrón MVC que presenta los datos al usuario y recibe sus interacciones.' },
+                { term: 'Vue.js', definition: 'Framework progresivo de JavaScript, conocido por su facilidad de integración y simplicidad.' }
+            ],
+            'W': [
+                { term: 'Web Storage', definition: 'API de almacenamiento web en HTML5 que incluye localStorage y sessionStorage.' },
+                { term: 'WebSocket', definition: 'Tecnología que permite comunicación bidireccional y en tiempo real a través de una conexión persistente.' },
+                { term: 'WSDL (Web Services Description Language)', definition: 'Formato basado en XML para describir servicios web SOAP.' }
+            ],
+            'X': [
+                { term: 'XSS (Cross-Site Scripting)', definition: 'Ataque que inyecta scripts maliciosos en páginas web vistas por otros usuarios.' },
+                { term: 'XML (eXtensible Markup Language)', definition: 'Lenguaje de marcado para definir la estructura de datos de forma detallada y portable.' }
+            ]
+        };
+
+        const letters = Object.keys(glossaryData).sort();
+        const letterNav = document.getElementById('letterNav');
+        
+        letters.forEach(letter => {
+            const link = document.createElement('a');
+            link.href = `#section-${letter}`;
+            link.className = 'letter-link';
+            link.textContent = letter;
+            letterNav.appendChild(link);
+        });
+
+        const glossaryContent = document.getElementById('glossaryContent');
+        
+        letters.forEach(letter => {
+            const terms = glossaryData[letter];
+            const section = document.createElement('div');
+            section.className = 'letter-section';
+            section.id = `section-${letter}`;
+            
+            section.innerHTML = `
+                <h2 class="letter-title">${letter}</h2>
+                <div class="terms-grid">
+                    ${terms.map(term => `
+                        <div class="term-card">
+                            <div class="term-title">
+                                ${term.term}
+                                <span class="term-badge">${letter}</span>
+                            </div>
+                            <div class="term-definition">${term.definition}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            `;
+            
+            glossaryContent.appendChild(section);
+        });
+
+        document.querySelectorAll('.letter-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        const backToTop = document.getElementById('backToTop');
+        backToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+    <script src="menu.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Test - Practica tus conocimientos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-question-circle"></i> Quiz Test</h1>
+            <p><i class="fas fa-graduation-cap"></i> Selecciona la respuesta correcta para cada pregunta</p>
+            <div class="stats">
+                <span><i class="fas fa-chart-simple"></i> Pregunta <span id="current">1</span> de <span id="total">0</span></span>
+                <span><i class="fas fa-check-circle"></i> Aciertos: <span id="correct">0</span></span>
+                <span><i class="fas fa-times-circle"></i> Fallos: <span id="incorrect">0</span></span>
+            </div>
+        </header>
+
+        <main>
+            <div id="quiz-container"></div>
+
+            <div class="navigation">
+                <button id="prevBtn" class="nav-btn" disabled><i class="fas fa-arrow-left"></i> Anterior</button>
+                <button id="nextBtn" class="nav-btn">Siguiente <i class="fas fa-arrow-right"></i></button>
+            </div>
+        </main>
+
+        <div class="results" id="results" style="display: none;">
+            <h2><i class="fas fa-trophy"></i> ¡Test Completado! <i class="fas fa-star"></i></h2>
+            <p>Has acertado <span id="finalScore">0</span> de <span id="totalQuestions">0</span> preguntas</p>
+            <p id="percentage"></p>
+            <button id="restartBtn" class="restart-btn"><i class="fas fa-rotate-right"></i> Reiniciar Test</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <script src="menu.js"></script>
+</body>
+</html>
