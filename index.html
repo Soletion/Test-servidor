@@ -84,5 +84,96 @@
     </div>
 
     <script src="app.js"></script>
+    <script>
+    // Función para crear y configurar el menú hamburguesa
+    function setupMobileMenu() {
+        // Verificar si ya existe el botón de menú
+        if (document.querySelector('.menu-toggle')) return;
+        
+        const navContainer = document.querySelector('.nav-container');
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (!navContainer || !navMenu) return;
+        
+        // Crear botón de menú hamburguesa
+        const menuToggle = document.createElement('div');
+        menuToggle.className = 'menu-toggle';
+        menuToggle.innerHTML = '<span></span><span></span><span></span>';
+        
+        // Crear overlay
+        const overlay = document.createElement('div');
+        overlay.className = 'menu-overlay';
+        
+        // Insertar elementos
+        navContainer.appendChild(menuToggle);
+        document.body.appendChild(overlay);
+        
+        // Función para abrir/cerrar menú
+        function toggleMenu(show) {
+            if (show === undefined) {
+                menuToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                overlay.classList.toggle('active');
+            } else if (show) {
+                menuToggle.classList.add('active');
+                navMenu.classList.add('active');
+                overlay.classList.add('active');
+            } else {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                overlay.classList.remove('active');
+            }
+            
+            // Bloquear/desbloquear scroll del body
+            if (navMenu.classList.contains('active')) {
+                document.body.style.overflow = 'hidden';
+            } else {
+                document.body.style.overflow = '';
+            }
+        }
+        
+        // Evento click en el botón
+        menuToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleMenu();
+        });
+        
+        // Cerrar menú al hacer clic en un enlace
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                toggleMenu(false);
+            });
+        });
+        
+        // Cerrar menú al hacer clic en el overlay
+        overlay.addEventListener('click', () => {
+            toggleMenu(false);
+        });
+        
+        // Cerrar menú al redimensionar a escritorio
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768 && navMenu.classList.contains('active')) {
+                toggleMenu(false);
+            }
+        });
+        
+        // Cerrar menú con tecla ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                toggleMenu(false);
+            }
+        });
+    }
+    
+    // Ejecutar cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', setupMobileMenu);
+    } else {
+        setupMobileMenu();
+    }
+</script>
+
+<script src="menu.js"></script>
 </body>
 </html>
