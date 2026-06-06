@@ -8,19 +8,13 @@
     <link rel="stylesheet" href="style.css">
     <style>
         /* Estilos específicos para el glosario */
-        .glossary-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
         .glossary-header {
             text-align: center;
             margin-bottom: 40px;
         }
 
         .glossary-header h1 {
-            font-size: 2.5em;
+            font-size: 2em;
             color: #6fa8dc;
             margin-bottom: 10px;
         }
@@ -29,7 +23,6 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
-        /* Letras de navegación rápida */
         .letter-nav {
             display: flex;
             flex-wrap: wrap;
@@ -66,11 +59,6 @@
             background: #6fa8dc;
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(111, 168, 220, 0.4);
-        }
-
-        /* Tarjetas de términos */
-        .terms-section {
-            margin-bottom: 40px;
         }
 
         .letter-section {
@@ -137,7 +125,7 @@
         .back-to-top {
             position: fixed;
             bottom: 30px;
-            right: 100px;
+            right: 30px;
             width: 50px;
             height: 50px;
             background: #6fa8dc;
@@ -147,7 +135,6 @@
             justify-content: center;
             text-decoration: none;
             color: white;
-            font-weight: bold;
             transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             z-index: 20;
@@ -155,7 +142,6 @@
 
         .back-to-top:hover {
             transform: translateY(-3px);
-            box-shadow: 0 6px 16px rgba(111, 114, 220, 0.4);
             background: #7fb8ec;
         }
 
@@ -175,26 +161,40 @@
             }
             
             .back-to-top {
+                bottom: 80px;
                 right: 20px;
-                bottom: 20px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-question-circle"></i>
+                <span>Quiz Test</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-play"></i> Cuestionario</a></li>
+                <li><a href="review.html" class="nav-link"><i class="fas fa-flag"></i> Repaso <span id="navReviewCount" class="nav-badge">0</span></a></li>
+                <li><a href="glossary.html" class="nav-link active"><i class="fas fa-book"></i> Glosario</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="container">
-        <header>
+        <div class="glossary-header">
             <h1><i class="fas fa-book-open"></i> Glosario de Términos</h1>
             <p><i class="fas fa-lightbulb"></i> Referencia rápida de conceptos importantes sobre desarrollo web, bases de datos y seguridad</p>
-        </header>
-
-        <div id="floating-menu"></div>
-
-        <div class="glossary-container">
-            <div class="letter-nav" id="letterNav"></div>
-            <div class="terms-section" id="glossaryContent"></div>
-            <a href="#" class="back-to-top" id="backToTop"><i class="fas fa-arrow-up"></i></a>
         </div>
+
+        <div class="letter-nav" id="letterNav"></div>
+        <div id="glossaryContent"></div>
+        
+        <a href="#" class="back-to-top" id="backToTop">
+            <i class="fas fa-arrow-up"></i>
+        </a>
     </div>
 
     <script>
@@ -354,6 +354,7 @@
             ]
         };
 
+        // Generar navegación por letras
         const letters = Object.keys(glossaryData).sort();
         const letterNav = document.getElementById('letterNav');
         
@@ -365,6 +366,7 @@
             letterNav.appendChild(link);
         });
 
+        // Generar contenido del glosario
         const glossaryContent = document.getElementById('glossaryContent');
         
         letters.forEach(letter => {
@@ -391,6 +393,7 @@
             glossaryContent.appendChild(section);
         });
 
+        // Smooth scroll
         document.querySelectorAll('.letter-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -402,13 +405,25 @@
             });
         });
 
+        // Botón volver arriba
         const backToTop = document.getElementById('backToTop');
         backToTop.addEventListener('click', function(e) {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-    </script>
 
-    <script src="menu.js"></script>
+        // Actualizar badge de review en el navbar
+        function updateNavReviewCount() {
+            const savedReviews = localStorage.getItem('reviewQuestions');
+            const reviewCount = savedReviews ? JSON.parse(savedReviews).length : 0;
+            const badge = document.getElementById('navReviewCount');
+            if (badge) badge.textContent = reviewCount;
+        }
+        
+        updateNavReviewCount();
+        
+        // Escuchar cambios en localStorage
+        window.addEventListener('storage', updateNavReviewCount);
+    </script>
 </body>
 </html>

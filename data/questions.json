@@ -1598,5 +1598,875 @@
       "\"3 2 1 \""
     ],
     "correct": "c"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $a = 3; $b = 4; echo $a + $b * 2;",
+    "options": [
+      "14",
+      "11",
+      "10",
+      "8"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $x = \"Hola\"; $y = &$x; $y = \"Adiós\"; echo $x;",
+    "options": [
+      "\"Hola\"",
+      "\"Adiós\"",
+      "Error de sintaxis",
+      "\"\""
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $numero = 5; $resultado = ++$numero; echo $resultado . \" \" . $numero;",
+    "options": [
+      "\"5 5\"",
+      "\"5 6\"",
+      "\"6 6\"",
+      "\"6 5\""
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $valor = 0; while($valor < 5) { if($valor == 3) { $valor++; continue; } echo $valor . \" \"; $valor++; }",
+    "options": [
+      "\"0 1 2 3 4 \"",
+      "\"0 1 2 4 \"",
+      "\"0 1 2 4 5 \"",
+      "\"0 1 2 3 4 5 \""
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? function operacion($a, $b = 10) { return $a * $b; } echo operacion(5, 3) . \" \"; echo operacion(5);",
+    "options": [
+      "\"15 50\"",
+      "\"15 15\"",
+      "\"50 50\"",
+      "\"15 5\""
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $matriz = [ [1, 2], [3, 4] ]; echo $matriz[1][0];",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $texto = \"PHP es increíble\"; echo str_replace(\"increíble\", \"fantástico\", $texto);",
+    "options": [
+      "\"PHP es increíble\"",
+      "\"PHP es fantástico\"",
+      "\"increíble\"",
+      "\"fantástico\""
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $num = 8; switch($num) { case 1: case 2: case 3: echo \"Bajo\"; break; case 4: case 5: case 6: echo \"Medio\"; break; default: echo \"Alto\"; }",
+    "options": [
+      "\"Bajo\"",
+      "\"Medio\"",
+      "\"Alto\"",
+      "No muestra nada"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $opciones = [\"rojo\", \"verde\", \"azul\"]; echo count($opciones) . \" \"; array_pop($opciones); echo count($opciones);",
+    "options": [
+      "\"3 3\"",
+      "\"3 2\"",
+      "\"2 2\"",
+      "\"3 1\""
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $valor = \"15\"; $suma = $valor + 5; echo gettype($suma);",
+    "options": [
+      "\"string\"",
+      "\"integer\"",
+      "\"float\"",
+      "\"double\""
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? for($i = 1; $i <= 5; $i++) { if($i % 2 == 0) { continue; } echo $i . \" \"; }",
+    "options": [
+      "\"1 2 3 4 5 \"",
+      "\"2 4 \"",
+      "\"1 3 5 \"",
+      "\"1 2 3 4 5 \""
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? class Prueba { public $nombre = \"Juan\"; } $obj = new Prueba(); echo $obj->nombre;",
+    "options": [
+      "\"nombre\"",
+      "\"Juan\"",
+      "Error de sintaxis",
+      "\"\""
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $cadena = \"   Programación   \"; echo strlen($cadena) . \" \" . strlen(trim($cadena));",
+    "options": [
+      "\"3 12\"",
+      "\"15 12\"",
+      "\"12 15\"",
+      "\"18 12\""
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $numero = 7; $resultado = $numero > 10 ? \"Mayor\" : ($numero > 5 ? \"Medio\" : \"Menor\"); echo $resultado;",
+    "options": [
+      "\"Mayor\"",
+      "\"Medio\"",
+      "\"Menor\"",
+      "Error de sintaxis"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $datos = [\"a\" => 1, \"b\" => 2, \"c\" => 3]; unset($datos[\"b\"]); echo count($datos);",
+    "options": [
+      "3",
+      "2",
+      "1",
+      "0"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $contador = 1; do { echo $contador . \" \"; $contador++; } while($contador <= 3);",
+    "options": [
+      "\"1 2 3 \"",
+      "\"1 2 3 4 \"",
+      "\"2 3 4 \"",
+      "\"1 2 \""
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? function incrementar($x) { $x++; } $y = 5; incrementar($y); echo $y;",
+    "options": [
+      "5",
+      "6",
+      "Error de sintaxis",
+      "0"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $frutas = [\"manzana\", \"pera\", \"uva\"]; echo $frutas[count($frutas) - 1];",
+    "options": [
+      "\"manzana\"",
+      "\"pera\"",
+      "\"uva\"",
+      "Error de índice"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $a = 10; $b = 20; $a = $a + $b; $b = $a - $b; $a = $a - $b; echo $a . \" \" . $b;",
+    "options": [
+      "\"10 20\"",
+      "\"20 10\"",
+      "\"30 10\"",
+      "\"10 30\""
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $texto = \"abc123\"; echo is_numeric($texto) ? \"Número\" : \"Texto\";",
+    "options": [
+      "\"Número\"",
+      "\"Texto\"",
+      "Error de sintaxis",
+      "\"abc123\""
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $array = [10, 20, 30]; foreach($array as &$valor) { $valor += 5; } echo $array[0] . \" \" . $array[1] . \" \" . $array[2];",
+    "options": [
+      "\"10 20 30\"",
+      "\"15 25 35\"",
+      "\"5 15 25\"",
+      "\"15 20 30\""
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $valor = \"Hola Mundo\"; echo strpos($valor, \"Mundo\");",
+    "options": [
+      "5",
+      "4",
+      "6",
+      "0"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $num = 5; $resultado = 2 ** 3 ** 2; echo $resultado;",
+    "options": [
+      "64",
+      "512",
+      "32",
+      "12"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? function prueba() { $contador = 0; $contador++; return $contador; } echo prueba() . \" \"; echo prueba() . \" \"; echo prueba();",
+    "options": [
+      "\"1 1 1 \"",
+      "\"1 2 3 \"",
+      "\"3 2 1 \"",
+      "\"0 0 0 \""
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $cadena = \"PHP,Java,Python\"; $partes = explode(\",\", $cadena); echo $partes[1];",
+    "options": [
+      "\"PHP\"",
+      "\"Java\"",
+      "\"Python\"",
+      "\"PHP,Java,Python\""
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $condicion = false; echo \"Resultado: \" . ($condicion ? \"Verdadero\" : \"Falso\");",
+    "options": [
+      "\"Resultado: Verdadero\"",
+      "\"Resultado: Falso\"",
+      "\"Resultado: \"",
+      "Error de sintaxis"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $numeros = [5, 2, 8, 1, 9]; sort($numeros); echo $numeros[2];",
+    "options": [
+      "5",
+      "2",
+      "8",
+      "9"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $valor = NULL; $resultado = $valor ?? \"valor por defecto\"; echo $resultado;",
+    "options": [
+      "\"\"",
+      "NULL",
+      "\"valor por defecto\"",
+      "Error de sintaxis"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $i = 0; while($i < 3) { echo $i . \" \"; $i++; } echo $i;",
+    "options": [
+      "\"0 1 2 3\"",
+      "\"0 1 2 2\"",
+      "\"0 1 2 3 4\"",
+      "\"1 2 3 3\""
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $texto = \"programacion\"; echo ucfirst($texto) . \" \"; echo strtoupper($texto);",
+    "options": [
+      "\"Programacion PROGRAMACION\"",
+      "\"programacion PROGRAMACION\"",
+      "\"Programacion programacion\"",
+      "\"PROGRAMACION PROGRAMACION\""
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la función principal de JavaScript en una página web?",
+    "options": [
+      "Añadir interactividad, manipular elementos HTML y CSS, y crear contenido dinámico en tiempo real.",
+      "Gestionar la conexión con la base de datos del servidor.",
+      "Definir el estilo visual y la presentación de los elementos.",
+      "Estructurar el contenido semántico de la página web."
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Qué variable superglobal se utiliza en PHP para recoger datos enviados mediante el método POST?",
+    "options": [
+      "$_GET",
+      "$_POST",
+      "$_REQUEST",
+      "$_SESSION"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué método HTTP envía la información de un formulario por la URL?",
+    "options": [
+      "POST",
+      "PUT",
+      "DELETE",
+      "GET"
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Cuál de las siguientes sentencias utilizamos para ejecutar una consulta MySQL en PHP?",
+    "options": [
+      "mysql_connect()",
+      "mysqli_query()",
+      "mysqli_connect()",
+      "mysql_execute()"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué estructura se utiliza en PHP para recoger excepciones?",
+    "options": [
+      "if...else",
+      "switch...case",
+      "try...catch",
+      "for...each"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué operador incrementa una variable en 1?",
+    "options": [
+      "--",
+      "+=",
+      "++",
+      "+=1"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué tipo de array contiene arrays en su interior?",
+    "options": [
+      "Array indexado",
+      "Array asociativo",
+      "Array multidimensional",
+      "Array lineal"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué sentencia SQL se utiliza para insertar datos en una tabla?",
+    "options": [
+      "SELECT INTO",
+      "INSERT INTO",
+      "ADD INTO",
+      "UPDATE INTO"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué bucle está diseñado específicamente para recorrer arrays?",
+    "options": [
+      "for",
+      "while",
+      "do-while",
+      "foreach"
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Qué función de PHP devuelve el número de campos o columnas de un resultado (resultset)?",
+    "options": [
+      "mysqli_num_rows()",
+      "mysqli_count_fields()",
+      "mysqli_num_fields()",
+      "mysqli_field_count()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "Cuando utilizamos un formulario para subir archivos al servidor (imágenes, documentos), ¿qué valor debe tener el atributo enctype?",
+    "options": [
+      "application/x-www-form-urlencoded",
+      "text/plain",
+      "multipart/form-data",
+      "application/json"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué superglobal se utiliza para la subida de archivos en PHP?",
+    "options": [
+      "$_POST",
+      "$_GET",
+      "$_FILES",
+      "$_SESSION"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué estructura de control se utiliza en PHP para repetir un bloque de código mientras se cumpla una condición?",
+    "options": [
+      "for",
+      "foreach",
+      "do-while",
+      "while"
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "Si queremos que una función en PHP reciba los parámetros o argumentos por referencia para modificar la variable fuera de su ámbito, ¿qué debemos hacer?",
+    "options": [
+      "Añadir el signo @ delante del nombre de la variable",
+      "Añadir el signo & delante del nombre de la variable",
+      "Añadir el signo * delante del nombre de la variable",
+      "Añadir el signo # delante del nombre de la variable"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué función comprueba si una variable está vacía en PHP?",
+    "options": [
+      "isset()",
+      "is_null()",
+      "empty()",
+      "defined()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué campo o propiedad de $_FILES contiene la ruta temporal del archivo?",
+    "options": [
+      "name",
+      "type",
+      "size",
+      "tmp_name"
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Qué operador se usa en PHP para concatenar cadenas de texto?",
+    "options": [
+      "+",
+      "&",
+      ". (punto)",
+      ", (coma)"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué función comprueba si un archivo existe en PHP?",
+    "options": [
+      "file_exists()",
+      "is_file()",
+      "exist_file()",
+      "file_check()"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Qué función se usa para comprobar si una variable está definida en PHP?",
+    "options": [
+      "empty()",
+      "is_null()",
+      "isset()",
+      "defined()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Con qué funciones podemos saber cuántos elementos tiene un array en PHP?",
+    "options": [
+      "count() y length()",
+      "count() y sizeof()",
+      "size() y length()",
+      "num() y count()"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué función devuelve el número de filas de un resultado (resultset) en MySQLi?",
+    "options": [
+      "mysqli_num_fields()",
+      "mysqli_count_rows()",
+      "mysqli_num_rows()",
+      "mysqli_rows_count()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué instrucción se usa para incluir un archivo PHP y detiene la ejecución si no existe dicho archivo, provocando un error fatal?",
+    "options": [
+      "include",
+      "include_once",
+      "require_once",
+      "require"
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Qué función devuelve el último ID insertado en una tabla con AUTO_INCREMENT en PHP?",
+    "options": [
+      "mysqli_last_id()",
+      "mysqli_insert_id()",
+      "mysqli_last_inserted()",
+      "mysqli_id()"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué función se utiliza en PHP para convertir una cadena a minúsculas?",
+    "options": [
+      "strtoupper()",
+      "ucfirst()",
+      "strtolower()",
+      "lcfirst()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué función permite incluir un archivo solo una vez en PHP?",
+    "options": [
+      "include",
+      "require",
+      "include_once",
+      "require_all"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué tipo de dato devuelve mysqli_query() cuando la consulta es SELECT?",
+    "options": [
+      "Array",
+      "Boolean",
+      "Objeto resultado (resultset)",
+      "String"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué operador lógico representa \"AND\" en PHP?",
+    "options": [
+      "||",
+      "!",
+      "&&",
+      "AND"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "Un archivo con extensión .php puede contener:",
+    "options": [
+      "Solo código PHP",
+      "Solo etiquetas HTML",
+      "Etiquetas HTML y código PHP",
+      "Solo código JavaScript"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué permite hacer la función mysqli_real_escape_string() en PHP?",
+    "options": [
+      "Escapar caracteres especiales para evitar inyección SQL",
+      "Codificar una cadena en base64",
+      "Convertir caracteres especiales en entidades HTML",
+      "Eliminar espacios en blanco de una cadena"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Qué operador compara contenido y tipo de dato en PHP?",
+    "options": [
+      "==",
+      "=",
+      "!==",
+      "==="
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Qué función se utiliza para cerrar una conexión de MySQL en PHP?",
+    "options": [
+      "mysql_close()",
+      "mysqli_close()",
+      "mysql_disconnect()",
+      "mysqli_disconnect()"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué método HTTP se utiliza normalmente para enviar datos de un formulario de forma segura?",
+    "options": [
+      "GET",
+      "POST",
+      "PUT",
+      "DELETE"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "En un formulario para subir archivos al servidor, ¿qué método debemos utilizar?",
+    "options": [
+      "GET",
+      "POST",
+      "PUT",
+      "DELETE"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "La última línea de una función (antes del cierre con la llave) debe ser:",
+    "options": [
+      "exit",
+      "break",
+      "return",
+      "continue"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué función protege contra inyecciones SQL al escapar caracteres especiales?",
+    "options": [
+      "htmlspecialchars()",
+      "addslashes()",
+      "mysqli_real_escape_string()",
+      "strip_tags()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "Al subir archivos al servidor, ¿en qué unidad se mide el tamaño del archivo?",
+    "options": [
+      "Kilobytes",
+      "Megabytes",
+      "Bytes",
+      "Gigabytes"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué función se utiliza para obtener una fila de resultados solo como un array asociativo en PHP?",
+    "options": [
+      "mysqli_fetch_array()",
+      "mysqli_fetch_row()",
+      "mysqli_fetch_assoc()",
+      "mysqli_fetch_object()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "A la hora de enviar un formulario de tipo login, ¿qué método debemos utilizar?",
+    "options": [
+      "GET",
+      "POST",
+      "PUT",
+      "DELETE"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué función mueve un archivo subido al servidor desde su ubicación temporal?",
+    "options": [
+      "copy()",
+      "move()",
+      "move_uploaded_file()",
+      "upload_file()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué función elimina espacios en blanco al inicio y final de una cadena?",
+    "options": [
+      "strip_tags()",
+      "htmlspecialchars()",
+      "trim()",
+      "strlen()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué función se debe utilizar en PHP para conectarse a una base de datos MySQL?",
+    "options": [
+      "mysql_connect()",
+      "mysqli_connect()",
+      "mysql_connection()",
+      "mysqli_connection()"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué sentencia SQL se utiliza para modificar datos existentes en una tabla?",
+    "options": [
+      "ALTER",
+      "MODIFY",
+      "UPDATE",
+      "CHANGE"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué operador se utiliza para negar una condición en PHP?",
+    "options": [
+      "&&",
+      "||",
+      "!",
+      "NOT"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué función se utiliza para obtener una fila de resultados como un array asociativo y numérico?",
+    "options": [
+      "mysqli_fetch_assoc()",
+      "mysqli_fetch_row()",
+      "mysqli_fetch_array()",
+      "mysqli_fetch_object()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "Para redirigir el flujo del programa al archivo compras.php utilizamos:",
+    "options": [
+      "redirect(\"compras.php\");",
+      "header(\"location:compras.php\");",
+      "location(\"compras.php\");",
+      "move(\"compras.php\");"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué tipo de error detiene totalmente la ejecución del script en PHP?",
+    "options": [
+      "Notice",
+      "Warning",
+      "Fatal error",
+      "Deprecated"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué símbolo se utiliza en PHP para declarar una variable?",
+    "options": [
+      "#",
+      "&",
+      "$",
+      "@"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué tipo de bucle se ejecuta al menos una vez?",
+    "options": [
+      "for",
+      "while",
+      "foreach",
+      "do-while"
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Qué operador lógico representa \"OR\" en PHP?",
+    "options": [
+      "&&",
+      "||",
+      "!",
+      "AND"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "Queremos subir un archivo al servidor. ¿Cómo obtenemos el nombre original del archivo?",
+    "options": [
+      "$_FILES['tmp_name']",
+      "$_FILES['size']",
+      "$_FILES['type']",
+      "$_FILES['name']"
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "Las funciones hash generan un resumen de longitud fija no reversible. ¿Cómo se aprovecha esta característica en los sistemas de almacenamiento de credenciales para garantizar la seguridad de las contraseñas?",
+    "options": [
+      "Almacenando la contraseña en texto plano junto con el hash",
+      "Almacenando solo el resumen de la contraseña, ya que es irreversible y su comparación con un nuevo resumen valida la contraseña sin exponerla",
+      "Almacenando la contraseña cifrada con clave simétrica",
+      "Almacenando la contraseña en un archivo externo"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es uno de los principales beneficios de la Integración Continua (CI)?",
+    "options": [
+      "La automatización del despliegue en producción",
+      "La detección y resolución temprana de errores al integrar y probar los cambios de código con frecuencia",
+      "La eliminación de pruebas de software",
+      "La reducción del número de desarrolladores necesarios"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la ventaja principal de utilizar AJAX (Asynchronous JavaScript and XML) para la generación dinámica de interfaces?",
+    "options": [
+      "Permite ejecutar código PHP en el navegador",
+      "Permite a las páginas web enviar y recibir datos del servidor de forma asíncrona, actualizando partes de la página sin necesidad de recargarla completamente",
+      "Elimina la necesidad de usar CSS",
+      "Reemplaza completamente al protocolo HTTP"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es una diferencia fundamental entre SOAP y REST?",
+    "options": [
+      "SOAP es más rápido que REST",
+      "SOAP intercambia mensajes en XML con un estándar estricto, mientras que REST se basa en HTTP y suele usar formatos más ligeros como JSON",
+      "SOAP solo funciona con PHP y REST solo con Java",
+      "SOAP es un protocolo y REST es un lenguaje de programación"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es el propósito principal de AJAX en la generación dinámica de páginas web interactivas?",
+    "options": [
+      "Permitir que partes de una página web se actualicen de manera asincrónica, intercambiando datos con el servidor sin necesidad de recargar la página completa",
+      "Reemplazar completamente a JavaScript",
+      "Eliminar la necesidad de usar HTML",
+      "Mejorar la velocidad de carga inicial de la página"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Qué es el Document Object Model (DOM) y por qué es crucial su manipulación en el desarrollo web moderno?",
+    "options": [
+      "Es un lenguaje de programación del lado del servidor",
+      "Es una representación estructurada de los elementos HTML de una página web, y su manipulación dinámica permite cambiar el contenido, la estructura y el estilo de la página en tiempo real",
+      "Es un tipo de base de datos NoSQL",
+      "Es un framework de JavaScript"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué característica es típica de una Aplicación de Una Sola Página (SPA) y es soportada por frameworks como React o Angular?",
+    "options": [
+      "Requiere recargar la página completa en cada interacción",
+      "Manejar la navegación entre diferentes vistas y estados sin requerir una recarga completa de la página",
+      "No utiliza JavaScript",
+      "Solo funciona sin conexión a internet"
+    ],
+    "correct": "b"
   }
 ]

@@ -8,35 +8,81 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-question-circle"></i>
+                <span>Quiz Test</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active"><i class="fas fa-play"></i> Cuestionario</a></li>
+                <li><a href="review.html" class="nav-link"><i class="fas fa-flag"></i> Repaso <span id="navReviewCount" class="nav-badge">0</span></a></li>
+                <li><a href="glossary.html" class="nav-link"><i class="fas fa-book"></i> Glosario</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <div class="container">
-        <header>
-            <h1><i class="fas fa-question-circle"></i> Quiz Test</h1>
-            <p><i class="fas fa-graduation-cap"></i> Selecciona la respuesta correcta para cada pregunta</p>
-            <div class="stats">
-                <span><i class="fas fa-chart-simple"></i> Pregunta <span id="current">1</span> de <span id="total">0</span></span>
-                <span><i class="fas fa-check-circle"></i> Aciertos: <span id="correct">0</span></span>
-                <span><i class="fas fa-times-circle"></i> Fallos: <span id="incorrect">0</span></span>
+        <!-- Pantalla de selección de cantidad -->
+        <div id="selectionScreen" class="selection-screen">
+            <div class="selection-card">
+                <i class="fas fa-graduation-cap selection-icon"></i>
+                <h2>¡Bienvenido al Quiz Test!</h2>
+                <p>Selecciona la cantidad de preguntas que deseas responder</p>
+                
+                <div class="selection-options">
+                    <button class="selection-btn" data-count="10">
+                        <span class="btn-number">10</span>
+                        <span class="btn-text">preguntas</span>
+                    </button>
+                    <button class="selection-btn" data-count="20">
+                        <span class="btn-number">20</span>
+                        <span class="btn-text">preguntas</span>
+                    </button>
+                    <button class="selection-btn" data-count="30">
+                        <span class="btn-number">30</span>
+                        <span class="btn-text">preguntas</span>
+                    </button>
+                </div>
+                
+                <div class="selection-info">
+                    <i class="fas fa-info-circle"></i>
+                    <span>Las preguntas se seleccionarán aleatoriamente</span>
+                </div>
             </div>
-        </header>
+        </div>
 
-        <main>
-            <div id="quiz-container"></div>
+        <!-- Pantalla del quiz (inicialmente oculta) -->
+        <div id="quizScreen" class="quiz-screen" style="display: none;">
+            <header>
+                <div class="stats">
+                    <span><i class="fas fa-chart-simple"></i> Pregunta <span id="current">1</span> de <span id="total">0</span></span>
+                    <span><i class="fas fa-check-circle"></i> Aciertos: <span id="correct">0</span></span>
+                    <span><i class="fas fa-times-circle"></i> Fallos: <span id="incorrect">0</span></span>
+                </div>
+            </header>
 
-            <div class="navigation">
-                <button id="prevBtn" class="nav-btn" disabled><i class="fas fa-arrow-left"></i> Anterior</button>
-                <button id="nextBtn" class="nav-btn">Siguiente <i class="fas fa-arrow-right"></i></button>
+            <main>
+                <div id="quiz-container"></div>
+
+                <div class="navigation">
+                    <button id="prevBtn" class="nav-btn" disabled><i class="fas fa-arrow-left"></i> Anterior</button>
+                    <button id="nextBtn" class="nav-btn">Siguiente <i class="fas fa-arrow-right"></i></button>
+                </div>
+            </main>
+
+            <div class="results" id="results" style="display: none;">
+                <h2><i class="fas fa-trophy"></i> ¡Test Completado! <i class="fas fa-star"></i></h2>
+                <p>Has acertado <span id="finalScore">0</span> de <span id="totalQuestions">0</span> preguntas</p>
+                <p id="percentage"></p>
+                <div class="results-actions">
+                    <button id="restartBtn" class="restart-btn"><i class="fas fa-rotate-right"></i> Nuevo Test</button>
+                </div>
             </div>
-        </main>
-
-        <div class="results" id="results" style="display: none;">
-            <h2><i class="fas fa-trophy"></i> ¡Test Completado! <i class="fas fa-star"></i></h2>
-            <p>Has acertado <span id="finalScore">0</span> de <span id="totalQuestions">0</span> preguntas</p>
-            <p id="percentage"></p>
-            <button id="restartBtn" class="restart-btn"><i class="fas fa-rotate-right"></i> Reiniciar Test</button>
         </div>
     </div>
 
     <script src="app.js"></script>
-    <script src="menu.js"></script>
 </body>
 </html>

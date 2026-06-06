@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Test - Preguntas para Repasar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <i class="fas fa-question-circle"></i>
+                <span>Quiz Test</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link"><i class="fas fa-play"></i> Cuestionario</a></li>
+                <li><a href="review.html" class="nav-link active"><i class="fas fa-flag"></i> Repaso <span id="navReviewCount" class="nav-badge">0</span></a></li>
+                <li><a href="glossary.html" class="nav-link"><i class="fas fa-book"></i> Glosario</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="review-header">
+            <h1><i class="fas fa-flag"></i> Preguntas para Repasar</h1>
+            <p>Aquí están las preguntas que has marcado para estudiar nuevamente</p>
+        </div>
+
+        <div id="reviewContainer" class="review-container">
+            <!-- Las preguntas marcadas se cargarán aquí -->
+        </div>
+    </div>
+
+    <script src="review.js"></script>
+</body>
+</html>
