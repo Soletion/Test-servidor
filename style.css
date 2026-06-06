@@ -10,7 +10,9 @@ body {
     min-height: 100vh;
 }
 
-/* Navbar */
+/* ============================================
+   NAVBAR RESPONSIVE
+   ============================================ */
 .navbar {
     background: rgba(30, 41, 59, 0.95);
     backdrop-filter: blur(20px);
@@ -44,10 +46,12 @@ body {
     font-size: 1.5em;
 }
 
+/* Menú de navegación - Desktop */
 .nav-menu {
     display: flex;
     gap: 24px;
     list-style: none;
+    transition: all 0.3s ease;
 }
 
 .nav-link {
@@ -60,6 +64,7 @@ body {
     border-radius: 8px;
     transition: all 0.3s ease;
     font-weight: 500;
+    white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -81,13 +86,50 @@ body {
     margin-left: 4px;
 }
 
+/* Botón de menú hamburguesa (solo móvil) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 8px;
+    background: rgba(111, 168, 220, 0.1);
+    transition: all 0.3s ease;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 2px;
+    background: white;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 6px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -6px);
+}
+
+/* ============================================
+   CONTENEDOR PRINCIPAL
+   ============================================ */
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 30px 24px;
 }
 
-/* Pantalla de selección */
+/* ============================================
+   PANTALLA DE SELECCIÓN
+   ============================================ */
 .selection-screen {
     display: flex;
     justify-content: center;
@@ -166,21 +208,13 @@ body {
     font-size: 0.9em;
 }
 
-.selection-info i {
-    margin-right: 8px;
-}
-
-/* Pantalla del quiz */
+/* ============================================
+   QUIZ SCREEN
+   ============================================ */
 .quiz-screen {
     animation: fadeIn 0.3s ease;
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-/* Header */
 header {
     background: rgba(255, 255, 255, 0.08);
     backdrop-filter: blur(20px);
@@ -289,7 +323,7 @@ header {
     font-weight: 500;
 }
 
-/* Botones de acción en pregunta */
+/* Botones de acción */
 .question-actions {
     display: flex;
     gap: 12px;
@@ -417,7 +451,7 @@ header {
     background: #7fb8ec;
 }
 
-/* Bloque de código */
+/* Código */
 .code-block {
     background: #1e293b;
     color: #e2e8f0;
@@ -522,6 +556,137 @@ header {
 .empty-review p {
     color: #64748b;
     font-size: 1.1em;
+}
+
+/* Glosario */
+.glossary-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.glossary-header h1 {
+    font-size: 2em;
+    color: #6fa8dc;
+    margin-bottom: 10px;
+}
+
+.letter-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 60px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: sticky;
+    top: 80px;
+    z-index: 10;
+}
+
+.letter-link {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.letter-link:hover {
+    background: #6fa8dc;
+    transform: translateY(-2px);
+}
+
+.letter-section {
+    margin-bottom: 30px;
+    scroll-margin-top: 100px;
+}
+
+.letter-title {
+    font-size: 2.5em;
+    font-weight: 800;
+    color: #6fa8dc;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(111, 168, 220, 0.3);
+}
+
+.terms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.term-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(111, 168, 220, 0.2);
+}
+
+.term-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+.term-title {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: #1E293B;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.term-badge {
+    background: #6fa8dc;
+    color: white;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.7em;
+    font-weight: 600;
+}
+
+.term-definition {
+    color: #4a5568;
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
+.back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background: #6fa8dc;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 20;
+}
+
+.back-to-top:hover {
+    transform: translateY(-3px);
+    background: #7fb8ec;
 }
 
 /* Botón de reinicio flotante */
@@ -657,7 +822,9 @@ header {
     color: white;
 }
 
-/* Animaciones */
+/* ============================================
+   ANIMACIONES
+   ============================================ */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -667,6 +834,11 @@ header {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 @keyframes slideUp {
@@ -691,47 +863,395 @@ header {
     }
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-direction: column;
-        text-align: center;
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablets (768px - 1024px) */
+@media (max-width: 1024px) {
+    .container {
+        padding: 20px;
     }
     
     .selection-card {
-        padding: 32px 24px;
+        padding: 40px 30px;
         margin: 20px;
+    }
+    
+    .terms-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+/* Móviles grandes (576px - 768px) */
+@media (max-width: 768px) {
+    /* Navbar responsive */
+    .nav-container {
+        padding: 12px 20px;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav-menu {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        width: 100%;
+        height: calc(100vh - 70px);
+        background: rgba(30, 41, 59, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        padding: 40px 20px;
+        gap: 20px;
+        transition: left 0.3s ease;
+        z-index: 999;
+    }
+    
+    .nav-menu.active {
+        left: 0;
+    }
+    
+    .nav-link {
+        width: 80%;
+        justify-content: center;
+        padding: 12px 20px;
+        font-size: 1.1em;
+    }
+    
+    /* Contenedor */
+    .container {
+        padding: 16px;
+    }
+    
+    /* Pantalla de selección */
+    .selection-screen {
+        min-height: calc(100vh - 150px);
+    }
+    
+    .selection-card {
+        padding: 32px 20px;
+        margin: 16px;
+    }
+    
+    .selection-card h2 {
+        font-size: 1.4em;
     }
     
     .selection-options {
         flex-direction: column;
+        gap: 12px;
     }
     
     .selection-btn {
         width: 100%;
+        padding: 16px 20px;
     }
     
+    .selection-btn .btn-number {
+        font-size: 1.5em;
+    }
+    
+    /* Stats */
     .stats {
         flex-direction: column;
         gap: 10px;
     }
     
+    .stats span {
+        text-align: center;
+        justify-content: center;
+    }
+    
+    /* Tarjetas de preguntas */
+    .question-card {
+        padding: 20px;
+    }
+    
+    .question-text {
+        font-size: 1em;
+    }
+    
+    .option {
+        padding: 10px 14px;
+    }
+    
+    .option label {
+        font-size: 0.85em;
+    }
+    
+    /* Botones de acción */
     .question-actions {
         flex-direction: column;
     }
     
     .action-btn {
         justify-content: center;
+        width: 100%;
+    }
+    
+    /* Navegación */
+    .navigation {
+        flex-direction: column;
+    }
+    
+    .nav-btn {
+        padding: 12px 20px;
+    }
+    
+    /* Resultados */
+    .results {
+        padding: 32px 20px;
+    }
+    
+    .results h2 {
+        font-size: 1.5em;
+    }
+    
+    .results p {
+        font-size: 1em;
     }
     
     .results-actions {
         flex-direction: column;
     }
     
+    /* Glosario */
+    .glossary-header h1 {
+        font-size: 1.5em;
+    }
+    
+    .letter-nav {
+        top: 70px;
+        gap: 8px;
+        padding: 12px;
+        border-radius: 40px;
+    }
+    
+    .letter-link {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9em;
+    }
+    
+    .letter-title {
+        font-size: 1.8em;
+    }
+    
+    .terms-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .term-card {
+        padding: 16px;
+    }
+    
+    /* Review */
+    .review-header h1 {
+        font-size: 1.5em;
+    }
+    
+    .review-item {
+        padding: 16px;
+    }
+    
+    .review-question-text {
+        font-size: 0.95em;
+    }
+    
+    .review-actions {
+        flex-direction: column;
+    }
+    
+    .remove-review-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .empty-review {
+        padding: 40px 20px;
+    }
+    
+    .empty-review i {
+        font-size: 3em;
+    }
+    
+    /* Botón flotante */
     .reset-quiz-btn {
-        bottom: 80px;
+        bottom: 16px;
         right: 16px;
         padding: 10px 16px;
         font-size: 0.8em;
     }
+    
+    /* Back to top */
+    .back-to-top {
+        bottom: 80px;
+        right: 16px;
+        width: 40px;
+        height: 40px;
+    }
+    
+    /* Código */
+    .code-block {
+        font-size: 0.75em;
+        padding: 12px;
+        overflow-x: auto;
+    }
+}
+
+/* Móviles pequeños (menos de 480px) */
+@media (max-width: 480px) {
+    .nav-brand {
+        font-size: 1.1em;
+    }
+    
+    .nav-brand i {
+        font-size: 1.2em;
+    }
+    
+    .container {
+        padding: 12px;
+    }
+    
+    .selection-card {
+        padding: 24px 16px;
+    }
+    
+    .selection-card h2 {
+        font-size: 1.2em;
+    }
+    
+    .selection-card p {
+        font-size: 0.9em;
+    }
+    
+    .stats span {
+        font-size: 0.85em;
+        padding: 8px 12px;
+    }
+    
+    .question-card {
+        padding: 16px;
+    }
+    
+    .option {
+        padding: 8px 12px;
+    }
+    
+    .option input[type="radio"] {
+        transform: scale(1);
+        margin-right: 10px;
+    }
+    
+    .option label {
+        font-size: 0.8em;
+    }
+    
+    .action-btn {
+        font-size: 0.75em;
+        padding: 8px 12px;
+    }
+    
+    .nav-btn {
+        font-size: 0.85em;
+        padding: 10px 16px;
+    }
+    
+    .letter-link {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8em;
+    }
+    
+    .term-title {
+        font-size: 1em;
+    }
+    
+    .term-definition {
+        font-size: 0.85em;
+    }
+    
+    .modal-content {
+        width: 95%;
+    }
+    
+    .modal-header {
+        padding: 16px;
+    }
+    
+    .modal-icon {
+        font-size: 2em;
+    }
+    
+    .modal-header h3 {
+        font-size: 1.2em;
+    }
+    
+    .modal-body {
+        padding: 20px 16px;
+    }
+    
+    .modal-footer {
+        padding: 16px;
+    }
+    
+    .modal-btn {
+        padding: 8px 16px;
+        font-size: 0.85em;
+    }
+    
+    .toast {
+        padding: 8px 16px;
+        font-size: 0.85em;
+        width: 90%;
+        text-align: center;
+    }
+}
+
+/* Orientación landscape en móviles */
+@media (max-width: 768px) and (orientation: landscape) {
+    .nav-menu {
+        height: calc(100vh - 60px);
+        top: 60px;
+        padding: 20px;
+        gap: 12px;
+    }
+    
+    .nav-link {
+        padding: 8px 16px;
+        font-size: 0.9em;
+    }
+    
+    .selection-screen {
+        min-height: auto;
+        padding: 20px 0;
+    }
+    
+    .question-actions {
+        flex-direction: row;
+    }
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1E293B;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6fa8dc;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7fb8ec;
 }
