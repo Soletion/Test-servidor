@@ -26,8 +26,16 @@ class QuizApp {
                 this.reviewQuestions = new Set(JSON.parse(savedReviews));
                 this.updateNavReviewCount();
             }
+            
+            console.log('Preguntas cargadas:', this.originalQuestions.length);
         } catch (error) {
             console.error('Error cargando preguntas:', error);
+            document.getElementById('quiz-container').innerHTML = `
+                <div class="error-message">
+                    <h3>Error al cargar las preguntas</h3>
+                    <p>Por favor, asegúrate de que el archivo data/questions.json existe.</p>
+                </div>
+            `;
         }
     }
 
@@ -42,6 +50,7 @@ class QuizApp {
     }
 
     startQuiz(count) {
+        console.log('Iniciando quiz con', count, 'preguntas');
         this.selectedCount = count;
         this.selectQuestions();
         this.userAnswers = {};
@@ -72,6 +81,7 @@ class QuizApp {
             [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
         }
         this.questions = shuffled.slice(0, this.selectedCount);
+        console.log('Preguntas seleccionadas:', this.questions.length);
     }
 
     saveReviewQuestions() {
@@ -147,8 +157,19 @@ class QuizApp {
 
     displayQuestion() {
         const container = document.getElementById('quiz-container');
+        
+        // Verificar que hay preguntas
+        if (!this.questions || this.questions.length === 0) {
+            console.error('No hay preguntas para mostrar');
+            container.innerHTML = '<div class="error-message">Error: No hay preguntas disponibles</div>';
+            return;
+        }
+        
         const question = this.questions[this.currentIndex];
-        if (!question) return;
+        if (!question) {
+            console.error('Pregunta no encontrada en índice:', this.currentIndex);
+            return;
+        }
 
         const selectedAnswer = this.userAnswers[this.currentIndex] || '';
         const feedbackGiven = this.feedbackGiven[this.currentIndex];
@@ -171,9 +192,9 @@ class QuizApp {
             
             return `
                 <div class="option ${additionalClass}" data-option="${letter}">
-                    <input type="radio" name="question" value="${letter}" id="opt_${letter}" 
+                    <input type="radio" name="question_${this.currentIndex}" value="${letter}" id="opt_${this.currentIndex}_${letter}" 
                         ${isSelected ? 'checked' : ''} ${feedbackGiven ? 'disabled' : ''}>
-                    <label for="opt_${letter}"><strong>${letter.toUpperCase()})</strong> ${this.escapeHtml(option)}</label>
+                    <label for="opt_${this.currentIndex}_${letter}"><strong>${letter.toUpperCase()})</strong> ${this.escapeHtml(option)}</label>
                 </div>
             `;
         }).join('');
@@ -193,24 +214,39 @@ class QuizApp {
             </div>
         `;
 
+        // Evento para el botón de review
         const reviewBtn = document.getElementById('reviewBtn');
-        if (reviewBtn) reviewBtn.addEventListener('click', () => this.toggleReviewQuestion());
+        if (reviewBtn) {
+            reviewBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.toggleReviewQuestion();
+            });
+        }
 
+        // Eventos para las opciones SOLO si no hay feedback dado
         if (!feedbackGiven) {
             const options = container.querySelectorAll('.option');
             options.forEach(opt => {
                 const radio = opt.querySelector('input[type="radio"]');
-                opt.addEventListener('click', () => {
-                    if (!this.feedbackGiven[this.currentIndex]) {
-                        radio.checked = true;
-                        this.selectAndVerify(radio.value);
-                    }
-                });
-                radio.addEventListener('change', () => {
-                    if (!this.feedbackGiven[this.currentIndex] && radio.checked) {
-                        this.selectAndVerify(radio.value);
-                    }
-                });
+                if (radio) {
+                    // Click en la opción
+                    opt.addEventListener('click', (e) => {
+                        if (!this.feedbackGiven[this.currentIndex]) {
+                            e.stopPropagation();
+                            radio.checked = true;
+                            this.selectAndVerify(radio.value);
+                        }
+                    });
+                    
+                    // Cambio directo del radio
+                    radio.addEventListener('change', (e) => {
+                        if (!this.feedbackGiven[this.currentIndex] && radio.checked) {
+                            e.stopPropagation();
+                            this.selectAndVerify(radio.value);
+                        }
+                    });
+                }
             });
         }
 
@@ -220,50 +256,73 @@ class QuizApp {
     selectAndVerify(answer) {
         if (this.feedbackGiven[this.currentIndex]) return;
         
+        console.log('Seleccionada respuesta:', answer, 'para pregunta', this.currentIndex);
+        
         this.userAnswers[this.currentIndex] = answer;
         const isCorrect = answer === this.questions[this.currentIndex].correct;
         this.feedbackGiven[this.currentIndex] = true;
         
-        if (isCorrect) this.updateScore('correct', true);
-        else this.updateScore('incorrect', true);
+        if (isCorrect) {
+            this.updateScore('correct', true);
+        } else {
+            this.updateScore('incorrect', true);
+        }
         
+        // Refrescar la pregunta para mostrar el resultado
         this.displayQuestion();
     }
 
     updateScore(type, increment) {
         const element = document.getElementById(type);
-        element.textContent = parseInt(element.textContent) + (increment ? 1 : 0);
+        if (element) {
+            const currentValue = parseInt(element.textContent) || 0;
+            element.textContent = currentValue + (increment ? 1 : 0);
+        }
     }
 
     updateStats() {
-        document.getElementById('total').textContent = this.totalQuestions;
-        document.getElementById('current').textContent = this.currentIndex + 1;
+        const totalSpan = document.getElementById('total');
+        const currentSpan = document.getElementById('current');
+        if (totalSpan) totalSpan.textContent = this.totalQuestions;
+        if (currentSpan) currentSpan.textContent = this.currentIndex + 1;
     }
 
     updateNavigationButtons() {
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
-        prevBtn.disabled = this.currentIndex === 0;
         
-        if (this.currentIndex === this.totalQuestions - 1) {
-            nextBtn.innerHTML = 'Finalizar <i class="fas fa-flag-checkered"></i>';
-        } else {
-            nextBtn.innerHTML = 'Siguiente <i class="fas fa-arrow-right"></i>';
+        if (prevBtn) prevBtn.disabled = this.currentIndex === 0;
+        
+        if (nextBtn) {
+            if (this.currentIndex === this.totalQuestions - 1) {
+                nextBtn.innerHTML = 'Finalizar <i class="fas fa-flag-checkered"></i>';
+            } else {
+                nextBtn.innerHTML = 'Siguiente <i class="fas fa-arrow-right"></i>';
+            }
         }
     }
 
     nextQuestion() {
+        console.log('nextQuestion - Índice actual:', this.currentIndex, 'Total:', this.totalQuestions);
+        
+        // Verificar que no sea la última pregunta
         if (this.currentIndex < this.totalQuestions - 1) {
             this.currentIndex++;
             this.updateStats();
             this.displayQuestion();
         } else if (this.currentIndex === this.totalQuestions - 1) {
-            if (this.feedbackGiven[this.currentIndex]) this.showResults();
-            else this.showToast('Selecciona una respuesta antes de finalizar', 'info');
+            // Es la última pregunta, verificar si está respondida
+            if (this.feedbackGiven[this.currentIndex]) {
+                this.showResults();
+            } else {
+                this.showToast('Por favor, selecciona una respuesta antes de finalizar', 'info');
+            }
         }
     }
 
     previousQuestion() {
+        console.log('previousQuestion - Índice actual:', this.currentIndex);
+        
         if (this.currentIndex > 0) {
             this.currentIndex--;
             this.updateStats();
@@ -272,7 +331,7 @@ class QuizApp {
     }
 
     showResults() {
-        const totalCorrect = parseInt(document.getElementById('correct').textContent);
+        const totalCorrect = parseInt(document.getElementById('correct').textContent) || 0;
         const percentage = (totalCorrect / this.totalQuestions) * 100;
         
         document.getElementById('finalScore').textContent = totalCorrect;
@@ -294,6 +353,11 @@ class QuizApp {
         document.getElementById('prevBtn').style.display = 'block';
         document.getElementById('nextBtn').style.display = 'block';
         document.getElementById('results').style.display = 'none';
+        
+        // Limpiar estado
+        this.currentIndex = 0;
+        this.userAnswers = {};
+        this.feedbackGiven = {};
     }
 
     showToast(message, type) {
@@ -324,10 +388,33 @@ class QuizApp {
     }
 
     setupEventListeners() {
-        document.getElementById('prevBtn').addEventListener('click', () => this.previousQuestion());
-        document.getElementById('nextBtn').addEventListener('click', () => this.nextQuestion());
-        document.getElementById('restartBtn').addEventListener('click', () => this.resetQuiz());
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const restartBtn = document.getElementById('restartBtn');
+        
+        if (prevBtn) {
+            // Eliminar event listeners anteriores para evitar duplicados
+            const newPrevBtn = prevBtn.cloneNode(true);
+            prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
+            newPrevBtn.addEventListener('click', () => this.previousQuestion());
+        }
+        
+        if (nextBtn) {
+            const newNextBtn = nextBtn.cloneNode(true);
+            nextBtn.parentNode.replaceChild(newNextBtn, nextBtn);
+            newNextBtn.addEventListener('click', () => this.nextQuestion());
+        }
+        
+        if (restartBtn) {
+            const newRestartBtn = restartBtn.cloneNode(true);
+            restartBtn.parentNode.replaceChild(newRestartBtn, restartBtn);
+            newRestartBtn.addEventListener('click', () => this.resetQuiz());
+        }
     }
 }
 
-document.addEventListener('DOMContentLoaded', () => { new QuizApp(); });
+// Inicializar la aplicación cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM cargado, iniciando QuizApp');
+    new QuizApp();
+});
