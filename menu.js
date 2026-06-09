@@ -1,18 +1,23 @@
 (function() {
-    // Función para actualizar el badge de review en el navbar
-    function updateNavReviewCount() {
+    function updateNavCounts() {
+        // Actualizar badge de review
         const savedReviews = localStorage.getItem('reviewQuestions');
         const reviewCount = savedReviews ? JSON.parse(savedReviews).length : 0;
-        
-        // Actualizar todos los badges que existan en la página
-        const badges = document.querySelectorAll('#navReviewCount');
-        badges.forEach(badge => {
+        const reviewBadges = document.querySelectorAll('#navReviewCount');
+        reviewBadges.forEach(badge => {
             if (badge) badge.textContent = reviewCount;
+        });
+        
+        // Actualizar badge de excluidas
+        const savedExcluded = localStorage.getItem('excludedQuestions');
+        const excludedCount = savedExcluded ? JSON.parse(savedExcluded).length : 0;
+        const excludedBadges = document.querySelectorAll('#navExcludedCount');
+        excludedBadges.forEach(badge => {
+            if (badge) badge.textContent = excludedCount;
         });
     }
     
-    // Crear el badge en el navbar si no existe 
-    function ensureBadge() {
+    function ensureBadges() {
         const reviewLink = document.querySelector('.nav-link[href="review.html"]');
         if (reviewLink && !reviewLink.querySelector('#navReviewCount')) {
             const badge = document.createElement('span');
@@ -21,26 +26,32 @@
             badge.textContent = '0';
             reviewLink.appendChild(badge);
         }
+        
+        const excludedLink = document.querySelector('.nav-link[href="excluded.html"]');
+        if (excludedLink && !excludedLink.querySelector('#navExcludedCount')) {
+            const badge = document.createElement('span');
+            badge.id = 'navExcludedCount';
+            badge.className = 'nav-badge';
+            badge.textContent = '0';
+            excludedLink.appendChild(badge);
+        }
     }
     
-    // Actualizar cuando se carga la página
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
-            ensureBadge();
-            updateNavReviewCount();
+            ensureBadges();
+            updateNavCounts();
         });
     } else {
-        ensureBadge();
-        updateNavReviewCount();
+        ensureBadges();
+        updateNavCounts();
     }
     
-    // Escuchar cambios en localStorage (cuando se añaden/quitan preguntas de repaso)
     window.addEventListener('storage', (e) => {
-        if (e.key === 'reviewQuestions') {
-            updateNavReviewCount();
+        if (e.key === 'reviewQuestions' || e.key === 'excludedQuestions') {
+            updateNavCounts();
         }
     });
     
-    // También actualizar periódicamente (por si acaso)
-    setInterval(updateNavReviewCount, 1000);
+    setInterval(updateNavCounts, 1000);
 })();

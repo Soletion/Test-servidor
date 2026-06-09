@@ -7,12 +7,14 @@ class QuizApp {
         this.feedbackGiven = {};
         this.totalQuestions = 0;
         this.reviewQuestions = new Set();
+        this.excludedQuestions = new Set();
         this.selectedCount = 0;
         this.quizStarted = false;
         
         this.loadQuestions();
         this.setupSelectionButtons();
         this.updateNavReviewCount();
+        this.updateNavExcludedCount();
     }
 
     async loadQuestions() {
@@ -20,14 +22,22 @@ class QuizApp {
             const response = await fetch('data/questions.json');
             this.originalQuestions = await response.json();
             
-            // Cargar preguntas marcadas desde localStorage
+            // Cargar preguntas marcadas para repaso
             const savedReviews = localStorage.getItem('reviewQuestions');
             if (savedReviews) {
                 this.reviewQuestions = new Set(JSON.parse(savedReviews));
                 this.updateNavReviewCount();
             }
             
+            // Cargar preguntas excluidas
+            const savedExcluded = localStorage.getItem('excludedQuestions');
+            if (savedExcluded) {
+                this.excludedQuestions = new Set(JSON.parse(savedExcluded));
+                this.updateNavExcludedCount();
+            }
+            
             console.log('Preguntas cargadas:', this.originalQuestions.length);
+            console.log('Preguntas excluidas:', this.excludedQuestions.size);
         } catch (error) {
             console.error('Error cargando preguntas:', error);
             document.getElementById('quiz-container').innerHTML = `
@@ -75,13 +85,31 @@ class QuizApp {
     }
 
     selectQuestions() {
-        const shuffled = [...this.originalQuestions];
+        // Filtrar preguntas no excluidas
+        const availableQuestions = this.originalQuestions.filter((_, index) => {
+            return !this.excludedQuestions.has(index);
+        });
+        
+        if (availableQuestions.length === 0) {
+            this.showToast('No hay preguntas disponibles. Restaura algunas desde la página de excluidas.', 'info');
+            this.questions = [];
+            return;
+        }
+        
+        const shuffled = [...availableQuestions];
         for (let i = shuffled.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
         }
-        this.questions = shuffled.slice(0, this.selectedCount);
-        console.log('Preguntas seleccionadas:', this.questions.length);
+        
+        const takeCount = Math.min(this.selectedCount, shuffled.length);
+        this.questions = shuffled.slice(0, takeCount);
+        
+        if (this.questions.length < this.selectedCount) {
+            this.showToast(`Solo hay ${this.questions.length} preguntas disponibles. ${this.selectedCount - this.questions.length} están excluidas.`, 'info');
+        }
+        
+        console.log('Preguntas seleccionadas (excluyendo ' + this.excludedQuestions.size + '):', this.questions.length);
     }
 
     saveReviewQuestions() {
@@ -89,10 +117,22 @@ class QuizApp {
         this.updateNavReviewCount();
     }
 
+    saveExcludedQuestions() {
+        localStorage.setItem('excludedQuestions', JSON.stringify(Array.from(this.excludedQuestions)));
+        this.updateNavExcludedCount();
+    }
+
     updateNavReviewCount() {
         const badge = document.getElementById('navReviewCount');
         if (badge) {
             badge.textContent = this.reviewQuestions.size;
+        }
+    }
+
+    updateNavExcludedCount() {
+        const badge = document.getElementById('navExcludedCount');
+        if (badge) {
+            badge.textContent = this.excludedQuestions.size;
         }
     }
 
@@ -108,6 +148,26 @@ class QuizApp {
         }
         
         this.saveReviewQuestions();
+        this.displayQuestion();
+    }
+
+    excludeQuestion() {
+        const originalIndex = this.getOriginalQuestionIndex();
+        
+        if (this.excludedQuestions.has(originalIndex)) {
+            this.excludedQuestions.delete(originalIndex);
+            this.showToast('Pregunta removida de excluidas. Aparecerá en futuros tests', 'info');
+        } else {
+            this.excludedQuestions.add(originalIndex);
+            // También remover de repaso si estaba
+            if (this.reviewQuestions.has(originalIndex)) {
+                this.reviewQuestions.delete(originalIndex);
+                this.saveReviewQuestions();
+            }
+            this.showToast('Pregunta excluida. No aparecerá en futuros tests', 'success');
+        }
+        
+        this.saveExcludedQuestions();
         this.displayQuestion();
     }
 
@@ -161,7 +221,7 @@ class QuizApp {
         // Verificar que hay preguntas
         if (!this.questions || this.questions.length === 0) {
             console.error('No hay preguntas para mostrar');
-            container.innerHTML = '<div class="error-message">Error: No hay preguntas disponibles</div>';
+            container.innerHTML = '<div class="error-message">Error: No hay preguntas disponibles. Restaura algunas desde la página de excluidas.</div>';
             return;
         }
         
@@ -174,6 +234,7 @@ class QuizApp {
         const selectedAnswer = this.userAnswers[this.currentIndex] || '';
         const feedbackGiven = this.feedbackGiven[this.currentIndex];
         const isMarkedForReview = this.reviewQuestions.has(this.getOriginalQuestionIndex());
+        const isExcluded = this.excludedQuestions.has(this.getOriginalQuestionIndex());
 
         let formattedQuestionText = question.text;
         const codeBlock = this.formatCodeBlock(question.text);
@@ -210,6 +271,9 @@ class QuizApp {
                     <button class="action-btn action-btn-review ${isMarkedForReview ? 'active' : ''}" id="reviewBtn">
                         <i class="fas fa-flag"></i> ${isMarkedForReview ? 'Quitar de repaso' : 'Marcar para repasar'}
                     </button>
+                    <button class="action-btn action-btn-exclude" id="excludeBtn">
+                        <i class="fas fa-eye-slash"></i> ${isExcluded ? 'Restaurar pregunta' : 'Excluir pregunta'}
+                    </button>
                 </div>
             </div>
         `;
@@ -221,6 +285,16 @@ class QuizApp {
                 e.preventDefault();
                 e.stopPropagation();
                 this.toggleReviewQuestion();
+            });
+        }
+        
+        // Evento para el botón de excluir
+        const excludeBtn = document.getElementById('excludeBtn');
+        if (excludeBtn) {
+            excludeBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.excludeQuestion();
             });
         }
 
@@ -305,13 +379,11 @@ class QuizApp {
     nextQuestion() {
         console.log('nextQuestion - Índice actual:', this.currentIndex, 'Total:', this.totalQuestions);
         
-        // Verificar que no sea la última pregunta
         if (this.currentIndex < this.totalQuestions - 1) {
             this.currentIndex++;
             this.updateStats();
             this.displayQuestion();
         } else if (this.currentIndex === this.totalQuestions - 1) {
-            // Es la última pregunta, verificar si está respondida
             if (this.feedbackGiven[this.currentIndex]) {
                 this.showResults();
             } else {
@@ -373,7 +445,7 @@ class QuizApp {
             z-index: 2000; animation: slideUp 0.3s ease;
         `;
         document.body.appendChild(toast);
-        setTimeout(() => toast.remove(), 2000);
+        setTimeout(() => toast.remove(), 3000);
     }
 
     setupResetButton() {
@@ -393,7 +465,6 @@ class QuizApp {
         const restartBtn = document.getElementById('restartBtn');
         
         if (prevBtn) {
-            // Eliminar event listeners anteriores para evitar duplicados
             const newPrevBtn = prevBtn.cloneNode(true);
             prevBtn.parentNode.replaceChild(newPrevBtn, prevBtn);
             newPrevBtn.addEventListener('click', () => this.previousQuestion());
