@@ -149,6 +149,9 @@ class QuizApp {
         
         this.saveReviewQuestions();
         this.displayQuestion();
+        
+        // Disparar evento para actualizar el menú
+        window.dispatchEvent(new Event('updateCounters'));
     }
 
     excludeQuestion() {
@@ -159,7 +162,6 @@ class QuizApp {
             this.showToast('Pregunta removida de excluidas. Aparecerá en futuros tests', 'info');
         } else {
             this.excludedQuestions.add(originalIndex);
-            // También remover de repaso si estaba
             if (this.reviewQuestions.has(originalIndex)) {
                 this.reviewQuestions.delete(originalIndex);
                 this.saveReviewQuestions();
@@ -169,6 +171,9 @@ class QuizApp {
         
         this.saveExcludedQuestions();
         this.displayQuestion();
+        
+        // Disparar evento para actualizar el menú
+        window.dispatchEvent(new Event('updateCounters'));
     }
 
     getOriginalQuestionIndex() {

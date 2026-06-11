@@ -115,6 +115,9 @@ class ReviewPage {
         this.displayReviewQuestions();
         this.updateNavReviewCount();
         this.showToast('Pregunta removida de la lista de repaso', 'success');
+        
+        // Disparar evento para actualizar el menú
+        window.dispatchEvent(new Event('updateCounters'));
     }
 
     updateNavReviewCount() {
