@@ -1,156 +1,86 @@
 [
   {
-    "text": "¿Cuál de las siguientes opciones describe correctamente la principal desventaja del CGI (Common Gateway Interface)?",
+    "text": "Según el temario, ¿cuál es la principal desventaja del modelo CGI (Common Gateway Interface)?",
     "options": [
-      "Su dependencia exclusiva del lenguaje Perl, lo que limita su uso.",
-      "La imposibilidad de generar contenido dinámico complejo.",
+      "Su falta de flexibilidad, ya que solo funciona con Perl.",
+      "La dificultad para integrarlo con servidores web modernos como Nginx.",
       "El bajo rendimiento debido a que crea un nuevo proceso por cada solicitud.",
-      "Su falta de compatibilidad con los servidores web modernos como Nginx."
+      "La complejidad de su sintaxis, que dificulta el desarrollo rápido."
     ],
     "correct": "c"
   },
   {
-    "text": "Según el temario, ¿cuál de las siguientes es una práctica fundamental para prevenir la Inyección SQL en una aplicación web?",
+    "text": "¿Cuál de las siguientes es una característica de las bases de datos NoSQL?",
     "options": [
-      "Usar la función htmlspecialchars() en todas las salidas de datos.",
-      "Validar los datos exclusivamente en el lado del cliente usando JavaScript.",
-      "Usar sentencias preparadas o consultas parametrizadas.",
-      "Almacenar todas las contraseñas en texto plano para facilitar la recuperación."
+      "Utilizan un esquema fijo y son ideales para transacciones complejas.",
+      "Están diseñadas para escalabilidad horizontal y manejar grandes volúmenes de datos no estructurados.",
+      "Se basan en el lenguaje SQL para todas sus operaciones.",
+      "Priorizan la integridad de datos sobre la escalabilidad."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "En el contexto del mantenimiento del estado HTTP, ¿qué técnica almacena los datos en el servidor y solo envía un identificador único al cliente?",
+    "options": [
+      "Cookies",
+      "Web Storage (localStorage)",
+      "Sesiones",
+      "Cache del navegador"
     ],
     "correct": "c"
   },
   {
-    "text": "En el contexto de los tipos de datos en PHP/Java, si tenemos una variable que puede contener los valores true o false, ¿qué tipo de dato primitivo está utilizando?",
+    "text": "¿Qué función de PHP se utiliza para convertir caracteres especiales en entidades HTML, previniendo ataques XSS?",
     "options": [
-      "Entero (Integer)",
-      "Carácter (Char)",
-      "Flotante (Float)",
-      "Booleano (Boolean)"
+      "mysqli_real_escape_string()",
+      "htmlspecialchars()",
+      "urlencode()",
+      "strip_tags()"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué método HTTP se considera seguro (idempotente y sin efectos secundarios) y se utiliza para recuperar información?",
+    "options": [
+      "POST",
+      "PUT",
+      "DELETE",
+      "GET"
     ],
     "correct": "d"
   },
   {
-    "text": "¿Qué función de PHP se utiliza para establecer una conexión con una base de datos MySQL?",
+    "text": "En el patrón de diseño MVC (Modelo-Vista-Controlador), ¿cuál es la responsabilidad principal del Controlador?",
     "options": [
-      "mysql_connect()",
-      "mysqli_connect()",
-      "mysqli_query()",
-      "mysqli_close()"
+      "Gestionar la lógica de negocio y la interacción con la base de datos.",
+      "Actuar como intermediario entre el Modelo y la Vista, gestionando las entradas del usuario.",
+      "Presentar los datos al usuario y manejar la interfaz de usuario.",
+      "Definir la estructura de la base de datos y las relaciones entre tablas."
     ],
     "correct": "b"
   },
   {
-    "text": "¿Qué método de envío de formularios HTTP debe utilizarse para subir archivos al servidor?",
+    "text": "¿Qué directiva se utiliza en PHP para incluir un archivo y detendrá la ejecución del script con un error fatal si el archivo no se encuentra?",
     "options": [
-      "GET, ya que es el método más rápido.",
-      "POST, con el enctype configurado como multipart/form-data.",
-      "POST, con el enctype configurado como application/x-www-form-urlencoded.",
-      "PUT, ya que es el método específico para subir archivos."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la función de la propiedad HttpOnly en una cookie?",
-    "options": [
-      "Permite que la cookie solo se envíe a través de una conexión HTTPS.",
-      "Evita que la cookie sea accedida a través de scripts del lado del cliente (JavaScript), mitigando ataques XSS.",
-      "Indica que la cookie es de solo lectura y no puede ser modificada por el servidor.",
-      "Hace que la cookie persista indefinidamente en el navegador del usuario."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "En el modelo de arquitectura de tres capas (tres niveles), ¿cuál es la función principal de la capa intermedia?",
-    "options": [
-      "Almacenar los datos de forma persistente.",
-      "Gestionar la interfaz de usuario y la presentación.",
-      "Contener la lógica de negocio de la aplicación.",
-      "Gestionar la comunicación de red a nivel de paquetes."
+      "include",
+      "require_once",
+      "require",
+      "include_once"
     ],
     "correct": "c"
   },
   {
-    "text": "¿Qué operador en PHP se utiliza para comparar si dos valores son idénticos, es decir, tienen el mismo valor y el mismo tipo de dato?",
+    "text": "¿Cuál es la función principal de mysqli_prepare() en PHP?",
     "options": [
-      "=",
-      "==",
-      "===",
-      "!="
+      "Ejecutar una consulta SQL directamente en la base de datos.",
+      "Escapar caracteres especiales para prevenir inyección SQL.",
+      "Cerrar la conexión activa con la base de datos.",
+      "Preparar una sentencia SQL para su ejecución, separando la consulta de los datos."
     ],
-    "correct": "c"
+    "correct": "d"
   },
   {
-    "text": "¿Cuál de los siguientes formatos de intercambio de datos es más ligero, fácil de leer para humanos y se ha convertido en el estándar para las APIs RESTful?",
-    "options": [
-      "XML",
-      "HTML",
-      "JSON",
-      "WSDL"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "En el patrón MVC (Modelo-Vista-Controlador), ¿qué componente se encarga de manejar la interacción del usuario y actuar como intermediario entre la vista y el modelo?",
-    "options": [
-      "El Modelo",
-      "La Vista",
-      "El Controlador",
-      "El Enrutador (Router)"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué superglobal de PHP se utiliza para recuperar los datos enviados a través de un formulario con el método GET?",
-    "options": [
-      "$_POST",
-      "$_GET",
-      "$_REQUEST",
-      "$_SERVER"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué función se utiliza para obtener la siguiente fila de un conjunto de resultados (resultset) como un array asociativo en PHP con MySQLi?",
-    "options": [
-      "mysqli_fetch_array()",
-      "mysqli_fetch_row()",
-      "mysqli_fetch_assoc()",
-      "mysqli_fetch_object()"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es una característica clave del lenguaje JavaScript cuando se ejecuta en el entorno de servidor Node.js?",
-    "options": [
-      "Utiliza un modelo de concurrencia basado en hilos (threads) para cada solicitud.",
-      "Es de tipado estático, lo que obliga a declarar el tipo de cada variable.",
-      "Emplea un modelo asíncrono y no bloqueante orientado a eventos.",
-      "Es el único lenguaje que puede interactuar con bases de datos NoSQL."
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué sentencia SQL se utiliza para eliminar un registro completo de una tabla?",
-    "options": [
-      "DROP DATABASE",
-      "DELETE FROM",
-      "TRUNCATE TABLE",
-      "UPDATE"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "Dado el siguiente código PHP, ¿qué valor mostrará? $a = '10'; $b = 10; if ($a == $b) { echo 'Igual'; } else { echo 'Distinto'; }",
-    "options": [
-      "\"Igual\", porque el operador == compara solo el valor, no el tipo.",
-      "\"Distinto\", porque los tipos de datos son diferentes (string vs integer).",
-      "No mostrará nada, generará un error de tipo.",
-      "Mostrará \"IgualDistinto\" por un comportamiento erróneo."
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Qué propiedad del array superglobal $_FILES contiene el nombre original del archivo subido desde el cliente?",
+    "text": "¿Qué propiedad del array $_FILES en PHP contiene el nombre original del archivo subido desde el cliente?",
     "options": [
       "$_FILES['nombre']['tmp_name']",
       "$_FILES['nombre']['size']",
@@ -160,367 +90,7 @@
     "correct": "d"
   },
   {
-    "text": "¿Qué función de PHP se utiliza para redirigir al usuario a una URL diferente (por ejemplo, compras.php)?",
-    "options": [
-      "redirect(\"compras.php\");",
-      "header(\"Location: compras.php\");",
-      "location(\"compras.php\");",
-      "move(\"compras.php\");"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "Según el temario, ¿cuál es una de las principales ventajas de utilizar sistemas de plantillas (como Twig o Blade) en lugar de incrustar código PHP directamente en HTML?",
-    "options": [
-      "Aumenta el rendimiento del servidor al compilar el código más rápido.",
-      "Elimina por completo la necesidad de usar JavaScript en el cliente.",
-      "Separa la lógica de negocio de la lógica de presentación, mejorando la mantenibilidad y legibilidad.",
-      "Permite que el código se ejecute directamente en el navegador del usuario."
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué tipo de prueba de software se centra en verificar la interacción y comunicación correcta entre diferentes módulos del sistema, como la aplicación web y la base de datos?",
-    "options": [
-      "Pruebas unitarias",
-      "Pruebas de integración",
-      "Pruebas de carga",
-      "Pruebas de interfaz de usuario (UI)"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la función principal de un sistema de control de versiones como Git?",
-    "options": [
-      "Optimizar el rendimiento del código en el servidor de producción.",
-      "Gestionar los cambios en el código fuente a lo largo del tiempo, permitiendo colaboración y volver a versiones anteriores.",
-      "Automatizar el despliegue de la aplicación en servidores remotos.",
-      "Ejecutar pruebas de seguridad automáticas en el código."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál de las siguientes afirmaciones sobre el patrón de diseño MVC (Modelo-Vista-Controlador) es correcta?",
-    "options": [
-      "La Vista se encarga de la lógica de negocio y el acceso a datos.",
-      "El Controlador actúa como intermediario entre el Modelo y la Vista, gestionando el flujo de datos y las interacciones del usuario.",
-      "El Modelo es la interfaz de usuario que presenta los datos al cliente.",
-      "En MVC, la Vista y el Modelo se comunican directamente sin necesidad de un Controlador."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "Para prevenir ataques de Cross-Site Scripting (XSS) al mostrar datos proporcionados por un usuario en una página HTML generada con PHP, ¿cuál de las siguientes funciones es la más adecuada?",
-    "options": [
-      "mysqli_real_escape_string()",
-      "trim()",
-      "htmlspecialchars()",
-      "isset()"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "En el contexto de la autenticación y autorización moderna, ¿cuál es la principal diferencia funcional entre OpenID y OAuth?",
-    "options": [
-      "OpenID se usa para autorización (qué puede hacer un usuario), mientras que OAuth se usa para autenticación (quién es un usuario).",
-      "OpenID se basa en XML y OAuth en JSON, siendo el primero más moderno.",
-      "OpenID es un protocolo de autenticación, mientras que OAuth es un protocolo de autorización.",
-      "No hay diferencia, ambos son protocolos intercambiables para inicio de sesión único (SSO)."
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué técnica de mantenimiento del estado almacena los datos en el servidor y solo envía un identificador único (ID) al cliente, generalmente a través de una cookie?",
-    "options": [
-      "localStorage",
-      "sessionStorage",
-      "Cookies tradicionales con datos de usuario.",
-      "Sesiones (Sessions)"
-    ],
-    "correct": "d"
-  },
-  {
-    "text": "Dado el siguiente fragmento de código PHP, ¿cuál será la salida? $valor = 5; if ($valor = 10) { echo \"Condición verdadera\"; } else { echo \"Condición falsa\"; }",
-    "options": [
-      "\"Condición falsa\", porque 5 no es igual a 10.",
-      "\"Condición verdadera\", porque el operador = asigna 10 a $valor y la condición se evalúa como verdadera.",
-      "No mostrará nada, ya que hay un error de sintaxis.",
-      "Mostrará un aviso (notice) de que se está usando un operador de asignación en lugar de comparación."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "En el desarrollo de una API RESTful, si queremos eliminar un recurso identificado por el ID 5, ¿qué método HTTP y qué endpoint sería el más adecuado y según la convención REST?",
-    "options": [
-      "GET /eliminar-recurso/5",
-      "POST /recurso/5/borrar",
-      "DELETE /recurso/5",
-      "PUT /recurso/5"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es la propiedad ACID de las transacciones que garantiza que una transacción se ejecute completamente o no se ejecute en absoluto, evitando que quede a medias?",
-    "options": [
-      "Consistencia",
-      "Aislamiento",
-      "Durabilidad",
-      "Atomicidad"
-    ],
-    "correct": "d"
-  },
-  {
-    "text": "Para manejar la subida de un archivo desde un formulario HTML en PHP, ¿cuál es el array superglobal que contiene la información del archivo (como el nombre temporal tmp_name)?",
-    "options": [
-      "$_POST",
-      "$_GET",
-      "$_FILES",
-      "$_REQUEST"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál de las siguientes afirmaciones sobre el protocolo SOAP y el estilo arquitectónico REST es correcta?",
-    "options": [
-      "REST es un protocolo basado estrictamente en XML, mientras que SOAP puede usar JSON.",
-      "SOAP es generalmente más ligero y simple que REST, ideal para APIs públicas.",
-      "REST utiliza los métodos HTTP (GET, POST, etc.) y suele ser más eficiente y fácil de implementar que SOAP.",
-      "SOAP no puede ser usado sobre el protocolo HTTP, a diferencia de REST."
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué tipo de bucle en PHP es el más adecuado para recorrer todos los elementos de un array sin necesidad de manejar un contador manualmente?",
-    "options": [
-      "for",
-      "while",
-      "do-while",
-      "foreach"
-    ],
-    "correct": "d"
-  },
-  {
-    "text": "¿Cuál de los siguientes describe mejor la principal desventaja del modelo de arquitectura de dos capas (cliente-servidor)?",
-    "options": [
-      "Es muy complejo de implementar inicialmente.",
-      "No permite separar la lógica de negocio de la presentación, volviéndolo poco escalable.",
-      "Requiere el uso de múltiples servidores de bases de datos obligatoriamente.",
-      "Utiliza exclusivamente el protocolo FTP para la comunicación."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué protocolo se utiliza como base para la comunicación en el modelo cliente-servidor web?",
-    "options": [
-      "FTP",
-      "SMTP",
-      "HTTP",
-      "SNMP"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál de los siguientes NO es un lenguaje del lado del servidor mencionado en el temario?",
-    "options": [
-      "PHP",
-      "Node.js (JavaScript)",
-      "Python",
-      "CSS"
-    ],
-    "correct": "d"
-  },
-  {
-    "text": "El estándar CGI (Common Gateway Interface) tiene una desventaja principal de rendimiento. ¿Cuál es?",
-    "options": [
-      "Solo funciona con el lenguaje Perl.",
-      "No puede generar páginas web dinámicas.",
-      "Crea un nuevo proceso por cada solicitud, consumiendo muchos recursos.",
-      "Es incompatible con el protocolo HTTP/2."
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué característica distingue a las bases de datos NoSQL de las SQL según el temario?",
-    "options": [
-      "Las NoSQL siempre son más rápidas en cualquier tipo de consulta.",
-      "Las NoSQL utilizan un esquema fijo y estricto para los datos.",
-      "Las NoSQL están diseñadas para escalabilidad horizontal y manejo de datos no estructurados o semiestructurados.",
-      "Las NoSQL no permiten operaciones de búsqueda."
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál de los siguientes lenguajes del lado del servidor es conocido por su modelo de concurrencia no bloqueante y orientado a eventos?",
-    "options": [
-      "PHP",
-      "Java con Spring",
-      "Node.js (JavaScript)",
-      "Ruby on Rails"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué función principal tiene el patrón de diseño MVC (Modelo-Vista-Controlador) en el desarrollo web?",
-    "options": [
-      "Aumentar la velocidad de ejecución del código PHP.",
-      "Separar la lógica de negocio (Modelo) de la interfaz de usuario (Vista) usando un intermediario (Controlador).",
-      "Eliminar la necesidad de usar HTML en las páginas web.",
-      "Gestionar automáticamente las copias de seguridad de la base de datos."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál de estos es un framework de Python para desarrollo web?",
-    "options": [
-      "Laravel",
-      "Spring",
-      "Django",
-      "Express"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué atributo de seguridad de una cookie evita que pueda ser accedida desde JavaScript, mitigando ataques XSS?",
-    "options": [
-      "Secure",
-      "SameSite",
-      "HttpOnly",
-      "Domain"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "En el contexto de la integración de lenguajes de servidor con HTML, ¿qué función cumple el escapado de datos (ej. htmlspecialchars() en PHP)?",
-    "options": [
-      "Acelera la carga de la página web.",
-      "Convierte caracteres especiales en entidades HTML para prevenir ataques XSS.",
-      "Conecta automáticamente con la base de datos.",
-      "Comprime el código HTML para ahorrar ancho de banda."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué servidor web es conocido por su alto rendimiento, bajo consumo de recursos y su capacidad para manejar muchas conexiones simultáneas?",
-    "options": [
-      "Apache HTTP Server",
-      "Microsoft IIS",
-      "Nginx",
-      "Tomcat"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál de las siguientes es una práctica recomendada para la nomenclatura de variables según el temario?",
-    "options": [
-      "Usar nombres de una sola letra para mayor eficiencia.",
-      "Usar nombres descriptivos como edadUsuario en lugar de e.",
-      "Usar siempre mayúsculas en todos los nombres de variables.",
-      "Usar caracteres especiales como $, #, @ al inicio del nombre."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué tipo de dato en programación representa un valor que puede ser verdadero o falso?",
-    "options": [
-      "Entero",
-      "Flotante",
-      "Carácter",
-      "Booleano"
-    ],
-    "correct": "d"
-  },
-  {
-    "text": "¿Cuál de las siguientes afirmaciones sobre la conversión de tipos de datos es correcta?",
-    "options": [
-      "La conversión implícita (coerción) la realiza el programador manualmente.",
-      "La conversión explícita (casting) nunca puede causar pérdida de precisión.",
-      "La conversión explícita la especifica el programador, mientras que la implícita la realiza automáticamente el lenguaje.",
-      "En lenguajes de tipado estático no existen conversiones de ningún tipo."
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué ámbito (scope) tiene una variable declarada dentro de una función en PHP?",
-    "options": [
-      "Global",
-      "Local",
-      "Estático",
-      "Constante"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál de las siguientes tecnologías se considera una alternativa moderna a CGI?",
-    "options": [
-      "HTML5",
-      "CSS3",
-      "Java Servlets/JSP",
-      "WebAssembly"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "Según el temario, ¿cuál es un criterio clave para la elección del lenguaje de servidor adecuado en un proyecto?",
-    "options": [
-      "La cantidad de colores que soporta su sintaxis.",
-      "La experiencia del equipo de desarrollo con ese lenguaje.",
-      "El número de versiones anteriores que ha tenido.",
-      "Su incapacidad para conectarse a bases de datos."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué función de PHP se utiliza para prevenir XSS al mostrar datos en HTML, convirtiendo caracteres especiales?",
-    "options": [
-      "mysqli_real_escape_string()",
-      "htmlspecialchars()",
-      "urlencode()",
-      "base64_encode()"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es una ventaja del uso de sistemas de plantillas (como Blade o Jinja2) sobre la incrustación directa de código?",
-    "options": [
-      "Hacen que la aplicación sea más lenta pero más segura.",
-      "Permiten separar la lógica de la presentación, mejorando el mantenimiento.",
-      "Son la única forma de conectarse a una base de datos.",
-      "Eliminan por completo la necesidad de escribir HTML."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué herramienta de control de versiones es la más popular y distribuida según el temario?",
-    "options": [
-      "Subversion (SVN)",
-      "Mercurial",
-      "Git",
-      "CVS"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código PHP? $nota = 7; if ($nota >= 5) { echo \"Aprobado\"; } else { echo \"Suspenso\"; }",
-    "options": [
-      "Suspenso",
-      "Aprobado",
-      "Error de sintaxis",
-      "No muestra nada"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué estructura de control es más adecuada para evaluar múltiples condiciones que dependen del valor de una única variable (ej. días de la semana)?",
-    "options": [
-      "if-else anidados",
-      "switch",
-      "Bucle for",
-      "Bucle while"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué bucle en PHP garantiza que el bloque de código se ejecute al menos una vez, ya que la condición se comprueba al final?",
+    "text": "¿Qué estructura de control en PHP es la más adecuada cuando se necesita ejecutar un bloque de código un número indeterminado de veces, pero se garantiza que el bloque se ejecute al menos una vez?",
     "options": [
       "for",
       "while",
@@ -530,657 +100,277 @@
     "correct": "d"
   },
   {
-    "text": "¿Qué tipo de dato compuesto en PHP permite almacenar múltiples valores bajo un mismo nombre, indexados por números o claves?",
+    "text": "¿Qué operador de comparación en PHP verifica que dos valores sean iguales y además del mismo tipo de dato?",
     "options": [
-      "Entero",
-      "Booleano",
-      "Array",
-      "Flotante"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál de los siguientes métodos HTTP se utiliza para enviar datos de un formulario de forma que aparezcan en la URL?",
-    "options": [
-      "POST",
-      "PUT",
-      "DELETE",
-      "GET"
+      "==",
+      "=",
+      "!=",
+      "==="
     ],
     "correct": "d"
   },
   {
-    "text": "¿Qué superglobal de PHP se utiliza para acceder a los datos enviados por un formulario mediante el método POST?",
+    "text": "En una sentencia SQL UPDATE, ¿qué cláusula es crucial para evitar modificar o eliminar todos los registros de una tabla?",
     "options": [
-      "$_GET",
-      "$_POST",
-      "$_SESSION",
-      "$_SERVER"
+      "SET",
+      "WHERE",
+      "JOIN",
+      "GROUP BY"
     ],
     "correct": "b"
+  },
+  {
+    "text": "¿Cuál es una de las principales ventajas de utilizar sentencias preparadas (PreparedStatements) en JDBC o consultas parametrizadas en PDO?",
+    "options": [
+      "Mejoran la legibilidad del código SQL.",
+      "Aumentan la portabilidad entre diferentes motores de base de datos.",
+      "Previenen de forma efectiva las vulnerabilidades de inyección SQL.",
+      "Permiten ejecutar múltiples consultas en una sola llamada a la base de datos."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué variable superglobal de PHP se utiliza para recoger los datos enviados por un formulario HTML que utiliza el método GET?",
+    "options": [
+      "$_POST",
+      "$_REQUEST",
+      "$_SERVER",
+      "$_GET"
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "El atributo HttpOnly en una cookie, ¿qué propósito de seguridad cumple?",
+    "options": [
+      "Garantiza que la cookie solo se transmita a través de conexiones HTTPS.",
+      "Impide que la cookie sea accedida por scripts del lado del cliente (JavaScript).",
+      "Define una fecha de expiración para la cookie.",
+      "Restringe la cookie a un dominio y ruta específicos."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué función de PHP se utiliza para establecer una conexión con un servidor de base de datos MySQL?",
+    "options": [
+      "mysql_connect()",
+      "mysqli_select_db()",
+      "mysqli_connect()",
+      "mysqli_query()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es el propósito principal de un middleware en frameworks como Express.js?",
+    "options": [
+      "Definir la estructura de las vistas y plantillas HTML.",
+      "Gestionar las relaciones entre modelos y la base de datos (ORM).",
+      "Realizar tareas antes de que una solicitud llegue al controlador, como autenticación o logging.",
+      "Compilar el código JavaScript del lado del servidor."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué tipo de prueba se centra en verificar la interacción y comunicación correcta entre diferentes módulos de una aplicación, como el servidor web y la base de datos?",
+    "options": [
+      "Pruebas unitarias.",
+      "Pruebas de integración.",
+      "Pruebas de interfaz de usuario (UI).",
+      "Pruebas de carga."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué protocolo estándar para autenticación permite a los usuarios usar una única identidad digital (como la de Google o Facebook) para acceder a múltiples sitios web?",
+    "options": [
+      "OAuth",
+      "LDAP",
+      "OpenID",
+      "SAML"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es la propiedad ACID que garantiza que, una vez que una transacción se ha completado con éxito, sus cambios persisten incluso en caso de fallo del sistema?",
+    "options": [
+      "Atomicidad",
+      "Consistencia",
+      "Aislamiento",
+      "Durabilidad"
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Qué lenguaje de marcas se utiliza en servicios web SOAP para describir la interfaz del servicio (métodos, parámetros, tipos de datos)?",
+    "options": [
+      "JSON Schema",
+      "WSDL (Web Services Description Language)",
+      "OpenAPI (Swagger)",
+      "HTML"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "Para leer una fila de resultados de una consulta SQL en PHP como un array asociativo (los nombres de las columnas son las claves), se utiliza:",
+    "options": [
+      "mysqli_fetch_row()",
+      "mysqli_fetch_array()",
+      "mysqli_fetch_assoc()",
+      "mysqli_fetch_object()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es la principal diferencia entre include y require en PHP?",
+    "options": [
+      "require puede incluir archivos remotos por URL, mientras que include no.",
+      "include solo puede incluir archivos una vez, mientras que require puede incluirlos múltiples veces.",
+      "Si el archivo no se encuentra, require produce un error fatal y detiene el script, mientras que include solo emite una advertencia.",
+      "No hay diferencia, son alias la una de la otra."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué método de autenticación/autorización es un estándar abierto que permite a una aplicación acceder a los recursos de un usuario en otro servicio (ej. \"Iniciar sesión con Google\" para acceder a tus contactos) sin compartir la contraseña?",
+    "options": [
+      "OpenID Connect",
+      "LDAP",
+      "OAuth 2.0",
+      "Basic Access Authentication"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué función se utiliza para mover un archivo subido desde la ubicación temporal del servidor a su destino final?",
+    "options": [
+      "copy()",
+      "upload_file()",
+      "move_uploaded_file()",
+      "rename()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué afirmación sobre el bucle while en PHP es correcta?",
+    "options": [
+      "El bloque de código se ejecuta al menos una vez.",
+      "Está diseñado específicamente para recorrer arrays.",
+      "La condición se evalúa al final de cada iteración.",
+      "La condición se evalúa al principio de cada iteración."
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "Para evitar la inyección de código JavaScript malicioso (XSS) al mostrar datos del usuario en una página HTML, la mejor práctica es:",
+    "options": [
+      "Usar mysqli_real_escape_string().",
+      "Usar htmlspecialchars().",
+      "Usar trim().",
+      "Usar filter_var() con FILTER_SANITIZE_STRING."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la función de mysqli_num_rows()?",
+    "options": [
+      "Devuelve el número de campos/columnas de un conjunto de resultados.",
+      "Devuelve el número de filas de un conjunto de resultados.",
+      "Devuelve el número de la última fila insertada.",
+      "Devuelve el número de conexiones activas a la base de datos."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué protocolo de comunicación estandariza la forma en que las aplicaciones Python se comunican con los servidores web, como Apache o Nginx?",
+    "options": [
+      "CGI",
+      "FastCGI",
+      "WSGI",
+      "Servlet API"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "La propiedad de las transacciones ACID que asegura que una transacción se ejecute como si fuera la única en el sistema, sin interferir con otras transacciones concurrentes, es:",
+    "options": [
+      "Atomicidad.",
+      "Consistencia.",
+      "Aislamiento.",
+      "Durabilidad."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué estructura de control en PHP es la más adecuada para evaluar una misma variable contra una lista de posibles valores constantes?",
+    "options": [
+      "una serie de if-else if",
+      "el operador ternario ? :",
+      "la estructura switch",
+      "el bucle for"
+    ],
+    "correct": "c"
   },
   {
     "text": "¿Qué función de PHP se utiliza para comprobar si una variable está definida y no es NULL?",
     "options": [
       "empty()",
       "is_null()",
-      "isset()",
-      "defined()"
+      "defined()",
+      "isset()"
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "En el contexto de las APIs RESTful, ¿qué método HTTP se utiliza normalmente para actualizar parcialmente un recurso existente?",
+    "options": [
+      "POST",
+      "PUT",
+      "PATCH",
+      "UPDATE"
     ],
     "correct": "c"
   },
   {
-    "text": "¿Cuál de los siguientes es un ejemplo de una función anónima en JavaScript?",
+    "text": "¿Qué función permite escapar caracteres especiales en una cadena para usarla de forma segura en una consulta SQL, ayudando a prevenir inyección SQL?",
     "options": [
-      "function miFuncion() {}",
-      "() => {}",
-      "class MiClase {}",
-      "const miVar = 5;"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué característica define a un closure (cierre) en programación?",
-    "options": [
-      "Una función que se ejecuta inmediatamente después de ser definida.",
-      "Una función que no tiene nombre.",
-      "Una función que tiene acceso al ámbito léxico de la función que la contiene, incluso después de que esa función haya terminado.",
-      "Una función que solo puede ser llamada una vez."
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué medida de seguridad es fundamental al procesar datos de un formulario en el servidor para evitar inyección SQL?",
-    "options": [
-      "Usar htmlspecialchars()",
-      "Usar consultas parametrizadas o sentencias preparadas.",
-      "Usar variables globales.",
-      "Usar el método GET en lugar de POST."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué función de PHP se utiliza para eliminar espacios en blanco al inicio y final de una cadena?",
-    "options": [
-      "strip_tags()",
       "htmlspecialchars()",
-      "trim()",
-      "strlen()"
+      "addslashes()",
+      "mysqli_real_escape_string()",
+      "urlencode()"
     ],
     "correct": "c"
   },
   {
-    "text": "¿Qué operador de PHP se utiliza para la concatenación de cadenas de texto?",
+    "text": "¿Cuál es una característica del lenguaje JavaScript del lado del servidor con Node.js?",
     "options": [
-      "+",
-      "&",
-      ". (punto)",
-      ", (coma)"
+      "Utiliza un modelo de concurrencia basado en hilos (threads).",
+      "Es ideal para aplicaciones con alta carga de CPU.",
+      "Emplea un modelo no bloqueante y orientado a eventos.",
+      "Su ecosistema (npm) es pequeño y especializado."
     ],
     "correct": "c"
   },
   {
-    "text": "¿Qué tipo de array contiene otros arrays como elementos, formando una estructura de filas y columnas?",
+    "text": "¿Qué método de array en JavaScript transforma cada elemento de un array en un nuevo elemento, devolviendo un nuevo array de la misma longitud?",
     "options": [
-      "Array indexado",
-      "Array asociativo",
-      "Array multidimensional",
-      "Array lineal"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué función devuelve el número de elementos (filas) de un conjunto de resultados (resultset) en MySQLi?",
-    "options": [
-      "mysqli_num_fields()",
-      "mysqli_num_rows()",
-      "mysqli_count_rows()",
-      "mysqli_fetch_rows()"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la estructura de control utilizada en PHP para manejar excepciones?",
-    "options": [
-      "if...else",
-      "switch...case",
-      "try...catch",
-      "for...each"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué símbolo se añade delante de un parámetro en PHP para pasarlo por referencia?",
-    "options": [
-      "*",
-      "&",
-      "@",
-      "#"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué función de PHP comprueba si una variable está vacía (ej. \"\", 0, NULL, false, array vacío)?",
-    "options": [
-      "isset()",
-      "is_null()",
-      "empty()",
-      "count()"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué índice del array $_FILES contiene la ruta temporal del archivo subido al servidor?",
-    "options": [
-      "'name'",
-      "'type'",
-      "'size'",
-      "'tmp_name'"
+      "forEach()",
+      "filter()",
+      "reduce()",
+      "map()"
     ],
     "correct": "d"
   },
   {
-    "text": "¿Qué función en PHP mueve un archivo subido desde su ubicación temporal a la ubicación definitiva?",
+    "text": "¿Qué archivo define las dependencias de un proyecto Node.js?",
     "options": [
-      "copy()",
-      "move_uploaded_file()",
-      "upload_file()",
-      "save_file()"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "En un formulario HTML que permite la subida de archivos, ¿qué valor debe tener el atributo enctype?",
-    "options": [
-      "application/x-www-form-urlencoded",
-      "text/plain",
-      "multipart/form-data",
-      "application/json"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál de los siguientes es un framework de JavaScript para construir interfaces de usuario basadas en componentes y Virtual DOM?",
-    "options": [
-      "Django",
-      "Laravel",
-      "React",
-      "Spring"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué tecnología permite la comunicación bidireccional y en tiempo real entre el cliente y el servidor a través de una conexión persistente?",
-    "options": [
-      "AJAX",
-      "Fetch API",
-      "WebSockets",
-      "HTTP/2"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es el propósito principal de la capa de \"presentación\" en una aplicación web?",
-    "options": [
-      "Manejar la lógica de negocio y las reglas de la aplicación.",
-      "Interactuar directamente con la base de datos.",
-      "Gestionar la interfaz de usuario y la interacción con el cliente.",
-      "Administrar las conexiones de red."
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "En el patrón MVP (Modelo-Vista-Presentador), ¿qué componente actúa como intermediario, similar al Controlador en MVC, pero con una relación más directa con la Vista?",
-    "options": [
-      "El Modelo",
-      "La Vista",
-      "El Presentador",
-      "El Servicio"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué técnica de mantenimiento del estado almacena los datos en el servidor y solo envía un identificador al cliente (normalmente en una cookie)?",
-    "options": [
-      "Cookie",
-      "localStorage",
-      "sessionStorage",
-      "Sesión"
+      "composer.json",
+      "requirements.txt",
+      "pom.xml",
+      "package.json"
     ],
     "correct": "d"
   },
   {
-    "text": "¿Qué afirmación sobre la seguridad de las cookies es correcta?",
-    "options": [
-      "Las cookies siempre son seguras porque se almacenan en el servidor.",
-      "El atributo Secure de una cookie permite enviarla solo a través de HTTPS.",
-      "Las cookies no pueden ser robadas nunca.",
-      "Las cookies no tienen fecha de caducidad."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la principal diferencia entre autenticación y autorización?",
-    "options": [
-      "Son exactamente lo mismo.",
-      "La autenticación determina qué puede hacer un usuario; la autorización verifica quién es.",
-      "La autenticación verifica quién es un usuario; la autorización determina qué puede hacer.",
-      "La autenticación se usa solo en redes sociales; la autorización en bancos."
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué protocolo de autorización permite a una aplicación acceder a los recursos de un usuario en otro servicio sin compartir sus credenciales (ej. \"Iniciar sesión con Google\")?",
-    "options": [
-      "OpenID",
-      "LDAP",
-      "OAuth",
-      "SAML"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "Según el principio de \"Menor Privilegio\" en seguridad, ¿qué se debe hacer?",
-    "options": [
-      "Otorgar todos los permisos posibles a todos los usuarios.",
-      "Otorgar a cada usuario solo los permisos estrictamente necesarios para realizar su función.",
-      "Cambiar los permisos de los usuarios cada día.",
-      "No otorgar ningún permiso a ningún usuario."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Para qué se utiliza principalmente el protocolo LDAP en una organización?",
-    "options": [
-      "Para enviar correos electrónicos masivos.",
-      "Para gestionar un directorio centralizado de usuarios y recursos (autenticación y autorización).",
-      "Para almacenar archivos de gran tamaño.",
-      "Para transmitir vídeo en streaming."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál de los siguientes NO es un tipo de prueba de software según el temario?",
-    "options": [
-      "Pruebas unitarias",
-      "Pruebas de integración",
-      "Pruebas de compilación",
-      "Pruebas de seguridad"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué herramienta se menciona en el temario para la automatización de pruebas de interfaz de usuario (UI) en navegadores?",
-    "options": [
-      "JUnit",
-      "Mocha",
-      "Selenium",
-      "PHPUnit"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es un objetivo de la Integración Continua (CI)?",
-    "options": [
-      "Desplegar el código a producción cada viernes por la tarde.",
-      "Detectar errores tempranamente integrando y probando el código con frecuencia.",
-      "Escribir toda la documentación del proyecto.",
-      "Diseñar la interfaz de usuario de la aplicación."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué estrategia de autenticación añade una capa adicional de seguridad además de la contraseña?",
-    "options": [
-      "Autenticación básica HTTP",
-      "Autenticación de dos factores (2FA/MFA)",
-      "Autenticación basada en cookies sin HTTPS",
-      "Autenticación con usuario y contraseña en texto plano"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es una práctica recomendada para proteger una aplicación contra CSRF (Cross-Site Request Forgery)?",
-    "options": [
-      "Usar siempre el método GET para formularios sensibles.",
-      "No usar sesiones nunca.",
-      "Implementar tokens anti-CSRF en los formularios.",
-      "Deshabilitar todas las cookies."
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué es un \"pool de conexiones\" en el contexto de bases de datos?",
-    "options": [
-      "Un lugar donde se almacenan las consultas SQL fallidas.",
-      "Un conjunto de conexiones a la base de datos que se mantienen abiertas y se reutilizan para múltiples solicitudes.",
-      "Una herramienta para diseñar diagramas de base de datos.",
-      "Un tipo de base de datos NoSQL."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál de las siguientes operaciones NO corresponde a una operación CRUD básica?",
-    "options": [
-      "SELECT",
-      "INSERT",
-      "JOIN",
-      "DELETE"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué sentencia SQL se utiliza para modificar registros existentes en una tabla?",
-    "options": [
-      "ALTER TABLE",
-      "UPDATE",
-      "MODIFY",
-      "CHANGE"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la principal ventaja de usar PreparedStatement (sentencias preparadas) en JDBC o consultas parametrizadas en PDO?",
-    "options": [
-      "Son más difíciles de escribir, lo que aumenta la seguridad por oscuridad.",
-      "Permiten ejecutar cualquier consulta sin conexión a la base de datos.",
-      "Previenen la inyección SQL al separar la lógica de la consulta de los datos.",
-      "Solo funcionan con bases de datos NoSQL."
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué método de la clase ResultSet en JDBC se utiliza para mover el cursor a la siguiente fila?",
-    "options": [
-      "previous()",
-      "first()",
-      "next()",
-      "last()"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál de las siguientes NO es una propiedad ACID de las transacciones?",
-    "options": [
-      "Atomicidad",
-      "Consistencia",
-      "Diversidad",
-      "Durabilidad"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "En una transacción de base de datos, ¿qué instrucción deshace todos los cambios realizados desde el último COMMIT o el inicio de la transacción?",
-    "options": [
-      "SAVEPOINT",
-      "COMMIT",
-      "UNDO",
-      "ROLLBACK"
-    ],
-    "correct": "d"
-  },
-  {
-    "text": "¿Qué nivel de aislamiento de transacciones es el más alto y garantiza que las transacciones se ejecuten como si fueran en serie?",
-    "options": [
-      "READ UNCOMMITTED",
-      "READ COMMITTED",
-      "REPEATABLE READ",
-      "SERIALIZABLE"
-    ],
-    "correct": "d"
-  },
-  {
-    "text": "¿Qué formato de serialización es ligero, fácil de leer y se ha convertido en el estándar para las APIs RESTful?",
-    "options": [
-      "XML",
-      "SOAP",
-      "JSON",
-      "WSDL"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué biblioteca o función se utiliza típicamente en Java para serializar objetos a JSON?",
-    "options": [
-      "JAXB",
-      "JDBC",
-      "Jackson",
-      "JSP"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es un riesgo de seguridad asociado con la deserialización de datos no confiables?",
-    "options": [
-      "Pérdida de rendimiento por el procesamiento.",
-      "Ataques de inyección de código o ejecución remota de código.",
-      "Mayor consumo de memoria en el cliente.",
-      "Dificultad para leer el formato JSON."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué tipo de archivo es ideal para intercambiar datos tabulares entre aplicaciones de hoja de cálculo y bases de datos?",
-    "options": [
-      "XML",
-      "JSON",
-      "CSV",
-      "HTML"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué función de PHP se utiliza para convertir una cadena JSON en una variable/objeto de PHP?",
-    "options": [
-      "json_encode()",
-      "json_parse()",
-      "json_decode()",
-      "json_stringify()"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál de las siguientes afirmaciones sobre las APIs RESTful es correcta?",
-    "options": [
-      "Siempre deben usar XML como formato de intercambio de datos.",
-      "Utilizan los métodos HTTP (GET, POST, PUT, DELETE) para realizar operaciones CRUD sobre recursos.",
-      "No pueden ser consumidas por aplicaciones móviles.",
-      "Requerimiento obligatoriamente el uso de WSDL."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué código de estado HTTP indica que una solicitud ha tenido éxito (ej. en una petición GET)?",
-    "options": [
-      "404 Not Found",
-      "500 Internal Server Error",
-      "200 OK",
-      "403 Forbidden"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué lenguaje se utiliza para describir formalmente la interfaz de un servicio web SOAP?",
-    "options": [
-      "JSON Schema",
-      "OpenAPI (Swagger)",
-      "WSDL (Web Services Description Language)",
-      "HTML"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es la principal diferencia entre SOAP y REST?",
-    "options": [
-      "REST es más antiguo y SOAP es más moderno.",
-      "SOAP solo funciona con JSON y REST solo con XML.",
-      "SOAP es un protocolo más pesado y estructurado (basado en XML), mientras que REST es un estilo arquitectónico más ligero (basado en HTTP).",
-      "No hay diferencias, son dos nombres para lo mismo."
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué elemento de un mensaje SOAP contiene los datos de la solicitud o respuesta?",
-    "options": [
-      "Envelope",
-      "Header",
-      "Body",
-      "Fault"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué librería de JavaScript simplificaba la manipulación del DOM y las llamadas AJAX, siendo muy popular en el pasado?",
-    "options": [
-      "React",
-      "Angular",
-      "jQuery",
-      "Vue.js"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué característica define a una Single Page Application (SPA)?",
-    "options": [
-      "La página se recarga completamente en cada interacción del usuario.",
-      "Solo funciona sin conexión a internet.",
-      "El contenido se actualiza dinámicamente sin recargar la página completa, ofreciendo una experiencia de aplicación de escritorio.",
-      "No utiliza JavaScript."
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué función de JavaScript (moderna) se utiliza para realizar peticiones HTTP asíncronas, reemplazando a XMLHttpRequest?",
-    "options": [
-      "$.ajax()",
-      "fetch()",
-      "axios.get()",
-      "http.request()"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué es GraphQL?",
-    "options": [
-      "Una base de datos gráfica.",
-      "Un lenguaje de consulta para APIs que permite a los clientes solicitar exactamente los datos que necesitan.",
-      "Un nuevo protocolo de transporte más rápido que HTTP.",
-      "Un framework de CSS."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué es el Virtual DOM que utiliza React?",
-    "options": [
-      "El DOM real del navegador, pero con menos elementos.",
-      "Una representación virtual en memoria del DOM real que permite optimizar las actualizaciones de la interfaz.",
-      "Un tipo de base de datos para almacenar elementos HTML.",
-      "Un editor de código para React."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es un caso de uso ideal para WebSockets?",
-    "options": [
-      "Enviar un formulario de contacto.",
-      "Cargar el contenido estático de una página web.",
-      "Una aplicación de chat en tiempo real.",
-      "Descargar un archivo PDF."
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué framework de backend para Node.js es minimalista y flexible, ampliamente usado para construir APIs?",
-    "options": [
-      "Django",
-      "Rails",
-      "Express.js",
-      "Laravel"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué es AJAX?",
-    "options": [
-      "Un lenguaje de programación del lado del servidor.",
-      "Una técnica que permite enviar y recibir datos del servidor de forma asíncrona sin recargar la página.",
-      "Un formato de intercambio de datos similar a JSON.",
-      "Un tipo de base de datos."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál de los siguientes NO es un framework o biblioteca de JavaScript para el frontend?",
-    "options": [
-      "React",
-      "Angular",
-      "Laravel",
-      "Vue.js"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es una ventaja clave de la reutilización de código?",
-    "options": [
-      "Aumenta la duplicación de código.",
-      "Reduce la eficiencia en el desarrollo.",
-      "Disminuye la consistencia de la aplicación.",
-      "Reduce costos y tiempo de desarrollo al no tener que reinventar soluciones."
-    ],
-    "correct": "d"
-  },
-  {
-    "text": "¿Qué estándar basado en XML funciona como un \"directorio telefónico\" para publicar y descubrir servicios web?",
-    "options": [
-      "SOAP",
-      "WSDL",
-      "UDDI (Universal Description, Discovery and Integration)",
-      "REST"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "En el modelo de datos UDDI, ¿qué \"páginas\" contienen la información técnica del servicio web (puntos de acceso, especificaciones)?",
-    "options": [
-      "White Pages",
-      "Yellow Pages",
-      "Green Pages",
-      "Blue Pages"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál de los siguientes es un formato de redifusión (sindicación) basado en XML para distribuir contenido que se actualiza frecuentemente?",
-    "options": [
-      "HTML",
-      "JSON",
-      "RSS (Really Simple Syndication)",
-      "CSV"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué formato de sindicación fue diseñado como una alternativa más potente y flexible a RSS, con mejor soporte para metadatos?",
-    "options": [
-      "Atom",
-      "JSON Feed",
-      "Podcast",
-      "WebSub"
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "En un sitio web de comercio electrónico, ¿qué funcionalidad es específica y característica de este tipo de sitio?",
-    "options": [
-      "Un sistema de gestión de contenido (CMS) para blogs.",
-      "Un carrito de compras y pasarela de pagos.",
-      "Un reproductor de vídeo en streaming.",
-      "Un sistema de reservas de citas."
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué función de PHP se utiliza para obtener una fila de resultados como un array asociativo y también numérico?",
+    "text": "¿Qué función de PHP se utiliza para obtener una fila de resultados como un array tanto numérico como asociativo?",
     "options": [
       "mysqli_fetch_assoc()",
       "mysqli_fetch_row()",
@@ -1190,797 +380,217 @@
     "correct": "c"
   },
   {
-    "text": "¿Qué función de PHP devuelve el número de campos (columnas) de un conjunto de resultados?",
+    "text": "¿Qué atributo del elemento <form> en HTML especifica cómo se deben codificar los datos del formulario al enviarlos al servidor, y es obligatorio cuando se suben archivos?",
     "options": [
-      "mysqli_num_rows()",
-      "mysqli_num_fields()",
-      "mysqli_count_fields()",
-      "mysqli_field_count()"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué tipo de error en PHP detiene completamente la ejecución del script?",
-    "options": [
-      "Notice",
-      "Warning",
-      "Fatal error",
-      "Deprecated"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué función en PHP se utiliza para incluir un archivo de forma obligatoria y, si no existe, detiene el script con un error fatal?",
-    "options": [
-      "include",
-      "include_once",
-      "require",
-      "require_virtual"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué función en PHP se utiliza para obtener el último ID insertado en una tabla con una columna AUTO_INCREMENT?",
-    "options": [
-      "mysqli_last_id()",
-      "mysqli_insert_id()",
-      "mysqli_last_inserted()",
-      "mysqli_id()"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué operador lógico en PHP representa la negación (NOT)?",
-    "options": [
-      "&&",
-      "||",
-      "!",
-      "&"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $contador = 10; while($contador <= 10){ echo \"Hola \"; $contador--; }",
-    "options": [
-      "\"Hola\" se muestra 10 veces.",
-      "\"Hola\" se muestra 11 veces.",
-      "Es un bucle infinito, muestra \"Hola\" repetidamente sin parar.",
-      "No muestra nada porque la condición es falsa."
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué superglobal de PHP contiene información sobre el servidor y el entorno de ejecución?",
-    "options": [
-      "$_SESSION",
-      "$_COOKIE",
-      "$_SERVER",
-      "$_ENV_GLOBAL"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "Para redirigir a un usuario a perfil.php después de un login exitoso, ¿qué función se debe usar?",
-    "options": [
-      "redirect(\"perfil.php\");",
-      "header(\"perfil.php\");",
-      "header(\"Location: perfil.php\");",
-      "location(\"perfil.php\");"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué función elimina etiquetas HTML y PHP de una cadena?",
-    "options": [
-      "trim()",
-      "strip_tags()",
-      "htmlspecialchars()",
-      "str_replace()"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué atributo de $_FILES contiene el código de error de la subida del archivo (ej. UPLOAD_ERR_OK)?",
-    "options": [
-      "['name']",
-      "['type']",
-      "['error']",
-      "['size']"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "Según el temario, ¿cuál es un beneficio de usar tecnologías \"serverless\" (sin servidor) como AWS Lambda?",
-    "options": [
-      "El desarrollador tiene control total sobre el sistema operativo del servidor.",
-      "No se paga por el uso, es completamente gratuito.",
-      "Permite ejecutar código en respuesta a eventos sin gestionar la infraestructura del servidor.",
-      "Es la única forma de escalar una aplicación web."
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $a = 5; $b = \"5\"; if ($a == $b) { echo \"Igual\"; } else { echo \"Distinto\"; }",
-    "options": [
-      "\"Distinto\"",
-      "\"Igual\"",
-      "Error de sintaxis",
-      "No muestra nada"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $a = 5; $b = \"5\"; if ($a === $b) { echo \"Igual\"; } else { echo \"Distinto\"; }",
-    "options": [
-      "\"Distinto\"",
-      "\"Igual\"",
-      "Error de sintaxis",
-      "\"IgualDistinto\""
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $contador = 0; while($contador < 3) { $contador++; echo $contador . \" \"; }",
-    "options": [
-      "\"0 1 2 \"",
-      "\"1 2 3 \"",
-      "\"0 1 2 3 \"",
-      "\"1 2 3 4 \""
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $color = \"rojo\"; switch($color) { case \"azul\": echo \"El cielo es azul\"; break; case \"rojo\": echo \"La sangre es roja\"; break; default: echo \"Color no reconocido\"; }",
-    "options": [
-      "\"El cielo es azul\"",
-      "\"La sangre es roja\"",
-      "\"Color no reconocido\"",
-      "No muestra nada"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $numero = 2; $resultado = ($numero > 3) ? \"Mayor\" : \"Menor o igual\"; echo $resultado;",
-    "options": [
-      "\"Mayor\"",
-      "\"Menor o igual\"",
-      "Error de sintaxis",
-      "\"\""
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $frutas = array(\"manzana\", \"banana\", \"cereza\"); echo count($frutas);",
-    "options": [
-      "2",
-      "3",
-      "4",
-      "0"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $texto = \"  Hola Mundo  \"; echo strlen(trim($texto));",
-    "options": [
-      "12",
-      "10",
-      "11",
-      "13"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $nombre = \"Juan\"; function saludar() { echo \"Hola \" . $nombre; } saludar();",
-    "options": [
-      "\"Hola Juan\"",
-      "\"Hola \"",
-      "Error: variable indefinida (o muestra \"Hola \" en algunos contextos)",
-      "\"Juan\""
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $i = 0; do { echo $i . \" \"; $i++; } while($i < 0);",
-    "options": [
-      "No muestra nada",
-      "\"0 \"",
-      "\"0 1 \"",
-      "Bucle infinito"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $num = 10; function incrementar(&$num) { $num++; } incrementar($num); echo $num;",
-    "options": [
-      "10",
-      "11",
-      "Error de sintaxis",
-      "1"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $valor = true; echo $valor;",
-    "options": [
-      "\"true\"",
-      "\"1\"",
-      "\"\"",
-      "\"TRUE\""
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? for ($i = 1; $i <= 5; $i++) { if ($i == 3) { break; } echo $i . \" \"; }",
-    "options": [
-      "\"1 2 3 4 5 \"",
-      "\"1 2 3 \"",
-      "\"1 2 \"",
-      "\"1 2 4 5 \""
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $cadena = \"Hola\"; $cadena .= \" Mundo\"; echo $cadena;",
-    "options": [
-      "\"Hola\"",
-      "\"Mundo\"",
-      "\"Hola Mundo\"",
-      "Error de sintaxis"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $numeros = array(1, 2, 3, 4, 5); echo $numeros[2];",
-    "options": [
-      "1",
-      "2",
-      "3",
-      "4"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $x = 5; $y = 3; echo $x ** $y;",
-    "options": [
-      "15",
-      "125",
-      "8",
-      "243"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $edad = 16; if ($edad >= 18) { echo \"Mayor de edad\"; } elseif ($edad >= 13) { echo \"Adolescente\"; } else { echo \"Niño\"; }",
-    "options": [
-      "\"Mayor de edad\"",
-      "\"Adolescente\"",
-      "\"Niño\"",
-      "No muestra nada"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $variable = 0; if (empty($variable)) { echo \"Vacío\"; } else { echo \"Lleno\"; }",
-    "options": [
-      "\"Vacío\"",
-      "\"Lleno\"",
-      "Error de sintaxis",
-      "\"0\""
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $colores = [\"rojo\", \"verde\", \"azul\"]; foreach ($colores as $color) { echo $color . \" \"; }",
-    "options": [
-      "\"rojo verde azul \"",
-      "\"rojo,verde,azul\"",
-      "\"0 1 2 \"",
-      "\"rojo\""
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? function sumar($a, $b = 5) { return $a + $b; } echo sumar(3);",
-    "options": [
-      "8",
-      "3",
-      "5",
-      "Error de sintaxis"
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $texto = \"PHP es genial\"; echo strtoupper($texto);",
-    "options": [
-      "\"php es genial\"",
-      "\"PHP ES GENIAL\"",
-      "\"Php Es Genial\"",
-      "\"php es genial\""
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $valor = \"123abc\"; $numero = (int)$valor; echo $numero;",
-    "options": [
-      "\"123abc\"",
-      "123",
-      "0",
-      "Error de sintaxis"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $datos = [\"nombre\" => \"Ana\", \"edad\" => 25]; echo $datos[\"nombre\"];",
-    "options": [
-      "\"Ana\"",
-      "25",
-      "\"nombre\"",
-      "Error de sintaxis"
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $a = 10; $b = 20; if ($a > $b) { echo \"A es mayor\"; } else if ($a < $b) { echo \"B es mayor\"; } else { echo \"Son iguales\"; }",
-    "options": [
-      "\"A es mayor\"",
-      "\"B es mayor\"",
-      "\"Son iguales\"",
-      "No muestra nada"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $i = 1; while ($i <= 3) { echo $i . \" \"; $i++; }",
-    "options": [
-      "\"1 2 3 4 \"",
-      "\"0 1 2 3 \"",
-      "\"1 2 3 \"",
-      "\"1 2 3 4 5 \""
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $resultado = 10 > 5 ? \"Verdadero\" : \"Falso\"; echo $resultado;",
-    "options": [
-      "\"Verdadero\"",
-      "\"Falso\"",
-      "10",
-      "5"
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $fruta = \"manzana\"; echo \"Me gusta la $fruta\";",
-    "options": [
-      "\"Me gusta la $fruta\"",
-      "\"Me gusta la manzana\"",
-      "\"Me gusta la $fruta\"",
-      "Error de sintaxis"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $numeros = [1, 2, 3]; array_push($numeros, 4); echo count($numeros);",
-    "options": [
-      "3",
-      "4",
-      "5",
-      "2"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $texto = \"Hola, mundo!\"; echo substr($texto, 0, 4);",
-    "options": [
-      "\"Hola\"",
-      "\"Hola,\"",
-      "\"Hola, m\"",
-      "\"mundo\""
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $variable = null; if (isset($variable)) { echo \"Definida\"; } else { echo \"No definida\"; }",
-    "options": [
-      "\"Definida\"",
-      "\"No definida\"",
-      "Error de sintaxis",
-      "\"null\""
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? function prueba() { static $contador = 0; $contador++; return $contador; } echo prueba() . \" \"; echo prueba() . \" \"; echo prueba();",
-    "options": [
-      "\"1 1 1 \"",
-      "\"0 0 0 \"",
-      "\"1 2 3 \"",
-      "\"3 2 1 \""
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $a = 3; $b = 4; echo $a + $b * 2;",
-    "options": [
-      "14",
-      "11",
-      "10",
-      "8"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $x = \"Hola\"; $y = &$x; $y = \"Adiós\"; echo $x;",
-    "options": [
-      "\"Hola\"",
-      "\"Adiós\"",
-      "Error de sintaxis",
-      "\"\""
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $numero = 5; $resultado = ++$numero; echo $resultado . \" \" . $numero;",
-    "options": [
-      "\"5 5\"",
-      "\"5 6\"",
-      "\"6 6\"",
-      "\"6 5\""
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $valor = 0; while($valor < 5) { if($valor == 3) { $valor++; continue; } echo $valor . \" \"; $valor++; }",
-    "options": [
-      "\"0 1 2 3 4 \"",
-      "\"0 1 2 4 \"",
-      "\"0 1 2 4 5 \"",
-      "\"0 1 2 3 4 5 \""
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? function operacion($a, $b = 10) { return $a * $b; } echo operacion(5, 3) . \" \"; echo operacion(5);",
-    "options": [
-      "\"15 50\"",
-      "\"15 15\"",
-      "\"50 50\"",
-      "\"15 5\""
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $matriz = [ [1, 2], [3, 4] ]; echo $matriz[1][0];",
-    "options": [
-      "1",
-      "2",
-      "3",
-      "4"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $texto = \"PHP es increíble\"; echo str_replace(\"increíble\", \"fantástico\", $texto);",
-    "options": [
-      "\"PHP es increíble\"",
-      "\"PHP es fantástico\"",
-      "\"increíble\"",
-      "\"fantástico\""
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $num = 8; switch($num) { case 1: case 2: case 3: echo \"Bajo\"; break; case 4: case 5: case 6: echo \"Medio\"; break; default: echo \"Alto\"; }",
-    "options": [
-      "\"Bajo\"",
-      "\"Medio\"",
-      "\"Alto\"",
-      "No muestra nada"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $opciones = [\"rojo\", \"verde\", \"azul\"]; echo count($opciones) . \" \"; array_pop($opciones); echo count($opciones);",
-    "options": [
-      "\"3 3\"",
-      "\"3 2\"",
-      "\"2 2\"",
-      "\"3 1\""
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $valor = \"15\"; $suma = $valor + 5; echo gettype($suma);",
-    "options": [
-      "\"string\"",
-      "\"integer\"",
-      "\"float\"",
-      "\"double\""
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? for($i = 1; $i <= 5; $i++) { if($i % 2 == 0) { continue; } echo $i . \" \"; }",
-    "options": [
-      "\"1 2 3 4 5 \"",
-      "\"2 4 \"",
-      "\"1 3 5 \"",
-      "\"1 2 3 4 5 \""
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? class Prueba { public $nombre = \"Juan\"; } $obj = new Prueba(); echo $obj->nombre;",
-    "options": [
-      "\"nombre\"",
-      "\"Juan\"",
-      "Error de sintaxis",
-      "\"\""
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $cadena = \"   Programación   \"; echo strlen($cadena) . \" \" . strlen(trim($cadena));",
-    "options": [
-      "\"3 12\"",
-      "\"15 12\"",
-      "\"12 15\"",
-      "\"18 12\""
+      "method",
+      "action",
+      "target",
+      "enctype"
     ],
     "correct": "d"
   },
   {
-    "text": "¿Cuál es la salida del siguiente código? $numero = 7; $resultado = $numero > 10 ? \"Mayor\" : ($numero > 5 ? \"Medio\" : \"Menor\"); echo $resultado;",
+    "text": "¿Cuál es una ventaja de utilizar JSON sobre XML para el intercambio de datos en APIs RESTful?",
     "options": [
-      "\"Mayor\"",
-      "\"Medio\"",
-      "\"Menor\"",
-      "Error de sintaxis"
+      "JSON es más estricto y permite definir esquemas complejos.",
+      "JSON es más ligero y fácil de procesar para los navegadores web.",
+      "JSON es un estándar más antiguo y con mayor soporte.",
+      "JSON permite incluir comentarios en la estructura de datos."
     ],
     "correct": "b"
   },
   {
-    "text": "¿Cuál es la salida del siguiente código? $datos = [\"a\" => 1, \"b\" => 2, \"c\" => 3]; unset($datos[\"b\"]); echo count($datos);",
+    "text": "¿Qué método HTTP se considera no idempotente y se utiliza para enviar datos al servidor, generalmente para crear o actualizar recursos?",
     "options": [
-      "3",
-      "2",
-      "1",
-      "0"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $contador = 1; do { echo $contador . \" \"; $contador++; } while($contador <= 3);",
-    "options": [
-      "\"1 2 3 \"",
-      "\"1 2 3 4 \"",
-      "\"2 3 4 \"",
-      "\"1 2 \""
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? function incrementar($x) { $x++; } $y = 5; incrementar($y); echo $y;",
-    "options": [
-      "5",
-      "6",
-      "Error de sintaxis",
-      "0"
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $frutas = [\"manzana\", \"pera\", \"uva\"]; echo $frutas[count($frutas) - 1];",
-    "options": [
-      "\"manzana\"",
-      "\"pera\"",
-      "\"uva\"",
-      "Error de índice"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $a = 10; $b = 20; $a = $a + $b; $b = $a - $b; $a = $a - $b; echo $a . \" \" . $b;",
-    "options": [
-      "\"10 20\"",
-      "\"20 10\"",
-      "\"30 10\"",
-      "\"10 30\""
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $texto = \"abc123\"; echo is_numeric($texto) ? \"Número\" : \"Texto\";",
-    "options": [
-      "\"Número\"",
-      "\"Texto\"",
-      "Error de sintaxis",
-      "\"abc123\""
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $array = [10, 20, 30]; foreach($array as &$valor) { $valor += 5; } echo $array[0] . \" \" . $array[1] . \" \" . $array[2];",
-    "options": [
-      "\"10 20 30\"",
-      "\"15 25 35\"",
-      "\"5 15 25\"",
-      "\"15 20 30\""
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $valor = \"Hola Mundo\"; echo strpos($valor, \"Mundo\");",
-    "options": [
-      "5",
-      "4",
-      "6",
-      "0"
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $num = 5; $resultado = 2 ** 3 ** 2; echo $resultado;",
-    "options": [
-      "64",
-      "512",
-      "32",
-      "12"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? function prueba() { $contador = 0; $contador++; return $contador; } echo prueba() . \" \"; echo prueba() . \" \"; echo prueba();",
-    "options": [
-      "\"1 1 1 \"",
-      "\"1 2 3 \"",
-      "\"3 2 1 \"",
-      "\"0 0 0 \""
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $cadena = \"PHP,Java,Python\"; $partes = explode(\",\", $cadena); echo $partes[1];",
-    "options": [
-      "\"PHP\"",
-      "\"Java\"",
-      "\"Python\"",
-      "\"PHP,Java,Python\""
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $condicion = false; echo \"Resultado: \" . ($condicion ? \"Verdadero\" : \"Falso\");",
-    "options": [
-      "\"Resultado: Verdadero\"",
-      "\"Resultado: Falso\"",
-      "\"Resultado: \"",
-      "Error de sintaxis"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $numeros = [5, 2, 8, 1, 9]; sort($numeros); echo $numeros[2];",
-    "options": [
-      "5",
-      "2",
-      "8",
-      "9"
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $valor = NULL; $resultado = $valor ?? \"valor por defecto\"; echo $resultado;",
-    "options": [
-      "\"\"",
-      "NULL",
-      "\"valor por defecto\"",
-      "Error de sintaxis"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $i = 0; while($i < 3) { echo $i . \" \"; $i++; } echo $i;",
-    "options": [
-      "\"0 1 2 3\"",
-      "\"0 1 2 2\"",
-      "\"0 1 2 3 4\"",
-      "\"1 2 3 3\""
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Cuál es la salida del siguiente código? $texto = \"programacion\"; echo ucfirst($texto) . \" \"; echo strtoupper($texto);",
-    "options": [
-      "\"Programacion PROGRAMACION\"",
-      "\"programacion PROGRAMACION\"",
-      "\"Programacion programacion\"",
-      "\"PROGRAMACION PROGRAMACION\""
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Cuál es la función principal de JavaScript en una página web?",
-    "options": [
-      "Añadir interactividad, manipular elementos HTML y CSS, y crear contenido dinámico en tiempo real.",
-      "Gestionar la conexión con la base de datos del servidor.",
-      "Definir el estilo visual y la presentación de los elementos.",
-      "Estructurar el contenido semántico de la página web."
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Qué variable superglobal se utiliza en PHP para recoger datos enviados mediante el método POST?",
-    "options": [
-      "$_GET",
-      "$_POST",
-      "$_REQUEST",
-      "$_SESSION"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué método HTTP envía la información de un formulario por la URL?",
-    "options": [
+      "GET",
+      "HEAD",
       "POST",
-      "PUT",
+      "PUT"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es la principal diferencia entre sessionStorage y localStorage en la API de almacenamiento web de HTML5?",
+    "options": [
+      "localStorage tiene una capacidad de almacenamiento mucho mayor.",
+      "sessionStorage solo está disponible para el servidor, no para el cliente.",
+      "Los datos de sessionStorage persisten solo durante la pestaña actual, mientras que localStorage no tiene fecha de expiración.",
+      "sessionStorage es más seguro porque cifra los datos antes de guardarlos."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "En PHP, ¿cómo se declara una función que puede recibir un número indeterminado de argumentos?",
+    "options": [
+      "No es posible, se debe pasar un array como único argumento.",
+      "Usando la palabra clave ... (operador splat) antes del parámetro.",
+      "Declarando la función sin parámetros y usando func_get_args().",
+      "Usando el operador & en el último parámetro."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué función de PHP se utiliza para eliminar espacios en blanco (u otros caracteres) del principio y final de una cadena?",
+    "options": [
+      "str_replace()",
+      "substr()",
+      "trim()",
+      "explode()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es un beneficio clave de usar un ORM (Object-Relational Mapping)?",
+    "options": [
+      "Mejora el rendimiento de las consultas SQL complejas.",
+      "Permite trabajar con la base de datos utilizando objetos del lenguaje de programación en lugar de escribir SQL directamente.",
+      "Elimina la necesidad de tener una base de datos relacional.",
+      "Garantiza que la aplicación sea automáticamente escalable."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué función se utiliza para redirigir al usuario a una nueva URL desde un script PHP, antes de que se haya enviado ninguna salida al navegador?",
+    "options": [
+      "redirect()",
+      "location()",
+      "header()",
+      "forward()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué tipo de array en PHP puede contener otros arrays como elementos?",
+    "options": [
+      "Array indexado.",
+      "Array asociativo.",
+      "Array multidimensional.",
+      "Array de objetos."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué parámetro se utiliza en la función mysqli_connect() para especificar la contraseña del usuario de la base de datos?",
+    "options": [
+      "El primer parámetro.",
+      "El segundo parámetro.",
+      "El tercer parámetro.",
+      "El cuarto parámetro."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "Según el temario, ¿qué servidor web es conocido por su alto rendimiento, bajo consumo de recursos y su habilidad para manejar muchas conexiones simultáneas eficientemente?",
+    "options": [
+      "Apache HTTP Server",
+      "Microsoft IIS",
+      "Nginx",
+      "Tomcat"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué instrucción SQL se utiliza para eliminar un registro de una tabla en una base de datos?",
+    "options": [
+      "REMOVE",
       "DELETE",
-      "GET"
+      "DROP",
+      "TRUNCATE"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es un ejemplo de un tipo de dato compuesto en programación?",
+    "options": [
+      "int",
+      "float",
+      "boolean",
+      "array"
     ],
     "correct": "d"
   },
   {
-    "text": "¿Cuál de las siguientes sentencias utilizamos para ejecutar una consulta MySQL en PHP?",
+    "text": "En el contexto de la seguridad de sesiones, ¿por qué es importante regenerar el ID de sesión después de un inicio de sesión exitoso?",
     "options": [
-      "mysql_connect()",
-      "mysqli_query()",
-      "mysqli_connect()",
-      "mysql_execute()"
+      "Para liberar memoria en el servidor.",
+      "Para evitar ataques de fijación de sesión (session fixation).",
+      "Para que la sesión nunca expire.",
+      "Para cambiar el método de almacenamiento de la sesión."
     ],
     "correct": "b"
   },
   {
-    "text": "¿Qué estructura se utiliza en PHP para recoger excepciones?",
+    "text": "¿Qué método del objeto ResultSet en JDBC se utiliza para mover el cursor a la siguiente fila?",
     "options": [
-      "if...else",
-      "switch...case",
-      "try...catch",
-      "for...each"
+      "first()",
+      "previous()",
+      "moveToNext()",
+      "next()"
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Cuál es el propósito del archivo web.xml en aplicaciones web Java tradicionales?",
+    "options": [
+      "Definir las dependencias del proyecto (JARs).",
+      "Contener el código compilado de los servlets.",
+      "Actuar como descriptor de despliegue, configurando servlets, filtros y listeners.",
+      "Almacenar los mensajes de internacionalización."
     ],
     "correct": "c"
   },
   {
-    "text": "¿Qué operador incrementa una variable en 1?",
+    "text": "¿Qué superglobal de PHP se utiliza para acceder a la información del servidor y del entorno de ejecución, como cabeceras HTTP, rutas y direcciones IP?",
     "options": [
-      "--",
-      "+=",
-      "++",
-      "+=1"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué tipo de array contiene arrays en su interior?",
-    "options": [
-      "Array indexado",
-      "Array asociativo",
-      "Array multidimensional",
-      "Array lineal"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué sentencia SQL se utiliza para insertar datos en una tabla?",
-    "options": [
-      "SELECT INTO",
-      "INSERT INTO",
-      "ADD INTO",
-      "UPDATE INTO"
+      "$_ENV",
+      "$_SERVER",
+      "$_SESSION",
+      "$_GLOBALS"
     ],
     "correct": "b"
   },
   {
-    "text": "¿Qué bucle está diseñado específicamente para recorrer arrays?",
+    "text": "¿Qué función de PHP se utiliza para convertir una cadena a mayúsculas?",
+    "options": [
+      "strtoupper()",
+      "strtolower()",
+      "ucfirst()",
+      "ucwords()"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "En el modelo de autenticación y autorización, ¿qué principio dicta que un usuario o proceso solo debe tener los permisos mínimos necesarios para realizar su función?",
+    "options": [
+      "Principio de responsabilidad única.",
+      "Principio de segregación de interfaces.",
+      "Principio de menor privilegio.",
+      "Principio de apertura/cierre."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué método de JavaScript se utiliza para enviar una solicitud HTTP de forma asíncrona (AJAX) en la programación moderna, basada en promesas?",
+    "options": [
+      "XMLHttpRequest",
+      "jQuery.ajax()",
+      "Fetch API",
+      "WebSocket"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué función de PHP devuelve el número de elementos de un array?",
+    "options": [
+      "length()",
+      "strlen()",
+      "count()",
+      "size()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué bucle en PHP es el más conveniente para iterar sobre todos los elementos de un array o un objeto sin preocuparse por el índice?",
     "options": [
       "for",
       "while",
@@ -1990,372 +600,532 @@
     "correct": "d"
   },
   {
-    "text": "¿Qué función de PHP devuelve el número de campos o columnas de un resultado (resultset)?",
+    "text": "¿Cuál es el nivel de aislamiento de transacciones más alto y restrictivo, que garantiza la serialización completa?",
     "options": [
-      "mysqli_num_rows()",
-      "mysqli_count_fields()",
-      "mysqli_num_fields()",
-      "mysqli_field_count()"
+      "READ UNCOMMITTED",
+      "READ COMMITTED",
+      "REPEATABLE READ",
+      "SERIALIZABLE"
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Cuál es el principal inconveniente de almacenar información sensible (como contraseñas) directamente en una cookie del cliente?",
+    "options": [
+      "La cookie puede ser borrada fácilmente por el usuario.",
+      "El tamaño de la cookie es muy limitado.",
+      "La cookie se envía al servidor en cada solicitud, aumentando el tráfico.",
+      "La cookie es vulnerable a ser leída o manipulada por el usuario o por ataques XSS."
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "En el contexto de la generación dinámica de páginas web, ¿qué tecnología fue uno de los primeros métodos para ejecutar programas externos en el servidor, aunque ineficiente por crear un nuevo proceso por solicitud?",
+    "options": [
+      "PHP",
+      "Servlets de Java",
+      "CGI (Common Gateway Interface)",
+      "ASP.NET"
     ],
     "correct": "c"
   },
   {
-    "text": "Cuando utilizamos un formulario para subir archivos al servidor (imágenes, documentos), ¿qué valor debe tener el atributo enctype?",
+    "text": "¿Qué función de PHP se utiliza para abrir un archivo en el servidor y leer su contenido?",
     "options": [
-      "application/x-www-form-urlencoded",
-      "text/plain",
-      "multipart/form-data",
-      "application/json"
+      "open_file()",
+      "file_open()",
+      "fopen()",
+      "read_file()"
     ],
     "correct": "c"
   },
   {
-    "text": "¿Qué superglobal se utiliza para la subida de archivos en PHP?",
+    "text": "¿Qué tecnología permite la comunicación bidireccional y en tiempo real entre el cliente y el servidor a través de una única conexión persistente?",
+    "options": [
+      "AJAX",
+      "WebSockets",
+      "REST API",
+      "Fetch API"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué hace la función mysqli_close() en PHP?",
+    "options": [
+      "Elimina la base de datos actual.",
+      "Cierra la conexión a la base de datos.",
+      "Finaliza la ejecución del script PHP.",
+      "Cierra el resultado de una consulta SELECT."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué tipo de dato devuelve la función mysqli_query() cuando se ejecuta una consulta INSERT, UPDATE o DELETE exitosa?",
+    "options": [
+      "Un objeto mysqli_result.",
+      "TRUE o FALSE.",
+      "El número de filas afectadas.",
+      "El último ID insertado."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué variable superglobal de PHP es un array asociativo que contiene variables enviadas al script actual a través de cookies HTTP?",
     "options": [
       "$_POST",
       "$_GET",
-      "$_FILES",
+      "$_COOKIE",
       "$_SESSION"
     ],
     "correct": "c"
   },
   {
-    "text": "¿Qué estructura de control se utiliza en PHP para repetir un bloque de código mientras se cumpla una condición?",
+    "text": "En POO, el concepto de \"encerrar\" los datos (propiedades) y los métodos que operan sobre ellos dentro de una clase, restringiendo el acceso directo desde fuera, se conoce como:",
     "options": [
-      "for",
-      "foreach",
-      "do-while",
-      "while"
+      "Herencia.",
+      "Polimorfismo.",
+      "Abstracción.",
+      "Encapsulación."
     ],
     "correct": "d"
   },
   {
-    "text": "Si queremos que una función en PHP reciba los parámetros o argumentos por referencia para modificar la variable fuera de su ámbito, ¿qué debemos hacer?",
+    "text": "¿Qué atributo de la etiqueta <form> especifica la URL a la que se enviarán los datos del formulario?",
     "options": [
-      "Añadir el signo @ delante del nombre de la variable",
-      "Añadir el signo & delante del nombre de la variable",
-      "Añadir el signo * delante del nombre de la variable",
-      "Añadir el signo # delante del nombre de la variable"
+      "method",
+      "target",
+      "enctype",
+      "action"
     ],
-    "correct": "b"
+    "correct": "d"
   },
   {
-    "text": "¿Qué función comprueba si una variable está vacía en PHP?",
+    "text": "¿Qué método se utiliza para enviar una solicitud HTTP POST con la Fetch API de JavaScript?",
     "options": [
-      "isset()",
-      "is_null()",
-      "empty()",
-      "defined()"
+      "No es posible, Fetch API solo soporta GET.",
+      "Usar el método post().",
+      "Usar el objeto XMLHttpRequest.",
+      "Usar la opción method: 'POST' en el objeto de configuración."
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Cuál es la función principal de git en el desarrollo de software?",
+    "options": [
+      "Automatizar el despliegue de aplicaciones.",
+      "Gestionar las dependencias del proyecto.",
+      "Realizar pruebas de integración continua.",
+      "Controlar las versiones del código fuente."
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Qué sentencia SQL se utiliza para recuperar datos de una base de datos?",
+    "options": [
+      "GET",
+      "EXTRACT",
+      "SELECT",
+      "READ"
     ],
     "correct": "c"
   },
   {
-    "text": "¿Qué campo o propiedad de $_FILES contiene la ruta temporal del archivo?",
+    "text": "¿Cuál es un objetivo principal de la Integración Continua (CI)?",
     "options": [
-      "name",
-      "type",
-      "size",
-      "tmp_name"
+      "Desplegar automáticamente el código a producción sin pruebas.",
+      "Detectar errores de forma temprana integrando y probando el código con frecuencia.",
+      "Gestionar la infraestructura del servidor como código.",
+      "Documentar la API del servicio web."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué función se utiliza para iniciar una sesión o recuperar la sesión actual en PHP?",
+    "options": [
+      "session_start()",
+      "session_begin()",
+      "session_register()",
+      "session_create()"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál de los siguientes no es un principio SOLID?",
+    "options": [
+      "Principio de responsabilidad única.",
+      "Principio de abierto/cerrado.",
+      "Principio de reutilización de código.",
+      "Principio de inversión de dependencias."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué método se utiliza para destruir completamente una sesión en PHP, eliminando todos los datos asociados?",
+    "options": [
+      "session_unset()",
+      "session_destroy()",
+      "session_abort()",
+      "session_reset()"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es un ejemplo de un gestor de dependencias para Node.js?",
+    "options": [
+      "Composer",
+      "Maven",
+      "pip",
+      "npm"
     ],
     "correct": "d"
   },
   {
-    "text": "¿Qué operador se usa en PHP para concatenar cadenas de texto?",
+    "text": "Si en un formulario HTML se define <input type=\"file\" name=\"imagen\">, ¿cómo se accede al nombre original del archivo subido en PHP?",
+    "options": [
+      "$_POST['imagen']",
+      "$_FILES['imagen']['tmp_name']",
+      "$_FILES['imagen']['name']",
+      "$_GET['imagen']"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué método de JavaScript añade un elemento al final de un array?",
+    "options": [
+      "push()",
+      "pop()",
+      "unshift()",
+      "concat()"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Qué lenguaje de programación es conocido por su framework \"Spring\", que es ampliamente utilizado para aplicaciones empresariales robustas?",
+    "options": [
+      "Python",
+      "PHP",
+      "Java",
+      "Ruby"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es la forma correcta de crear una función de flecha (arrow function) en JavaScript que devuelve el cuadrado de un número?",
+    "options": [
+      "function cuadrado(x) { return x * x; }",
+      "let cuadrado = (x) => x * x;",
+      "let cuadrado = function(x) { return x * x; };",
+      "let cuadrado = x => { return x * x; };"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es el propósito de un sistema de colas (message queue) en una arquitectura de n-capas?",
+    "options": [
+      "Almacenar en caché las respuestas del servidor.",
+      "Gestionar la autenticación de usuarios.",
+      "Desacoplar procesos y manejar tareas asíncronas (como enviar correos).",
+      "Servir archivos estáticos de forma más eficiente."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué función de PHP es útil para depuración y muestra información estructurada de una variable, como su tipo y valor?",
+    "options": [
+      "echo",
+      "print_r()",
+      "var_dump()",
+      "printf()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "En el contexto del despliegue moderno, ¿qué tecnología se utiliza para empaquetar una aplicación y sus dependencias en un entorno aislado y portable?",
+    "options": [
+      "Máquina virtual (VM).",
+      "Balanceador de carga.",
+      "Contenedor (Docker).",
+      "CDN (Content Delivery Network)."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué cláusula SQL se usa para filtrar registros después de aplicar una función de agregación como COUNT(*)?",
+    "options": [
+      "WHERE",
+      "HAVING",
+      "FILTER",
+      "GROUP BY"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué elemento de un mensaje SOAP es opcional y contiene metadatos como información de seguridad o transacciones?",
+    "options": [
+      "Envelope",
+      "Body",
+      "Fault",
+      "Header"
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Qué atributo de una cookie, cuando está presente, asegura que solo se enviará a través de conexiones HTTPS, no por HTTP plano?",
+    "options": [
+      "HttpOnly",
+      "Domain",
+      "Secure",
+      "SameSite"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "En el contexto de Node.js, ¿cuál es el propósito del archivo package-lock.json?",
+    "options": [
+      "Contiene la metadata del proyecto (nombre, versión, autor).",
+      "Define los scripts que se pueden ejecutar con npm run.",
+      "Bloquea las versiones exactas de las dependencias instaladas para asegurar que la instalación sea reproducible.",
+      "Almacena las variables de entorno del proyecto."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué método se utiliza para iniciar una transacción en PDO (PHP Data Objects)?",
+    "options": [
+      "PDO::beginTransaction()",
+      "PDO::startTransaction()",
+      "PDO::commit()",
+      "PDO::query('BEGIN')"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es una ventaja del enfoque \"Serverless\" (como AWS Lambda) para ejecutar código de servidor?",
+    "options": [
+      "Ofrece un control total sobre la infraestructura del servidor.",
+      "Es la única forma de ejecutar código para aplicaciones en tiempo real.",
+      "Permite ejecutar código sin necesidad de gestionar o aprovisionar servidores explícitamente.",
+      "Es más barato que cualquier otro tipo de hosting para aplicaciones con tráfico constante y predecible."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es el propósito del archivo composer.json en PHP?",
+    "options": [
+      "Almacenar la configuración del servidor web Apache.",
+      "Contener las pruebas unitarias de la aplicación.",
+      "Gestionar las dependencias (librerías) del proyecto PHP.",
+      "Definir la estructura de la base de datos."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué función de PHP se utiliza para convertir un array asociativo en un objeto JSON?",
+    "options": [
+      "json_decode()",
+      "json_parse()",
+      "json_encode()",
+      "json_stringify()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué método HTTP se utiliza para eliminar un recurso identificado por una URL?",
+    "options": [
+      "REMOVE",
+      "DELETE",
+      "DESTROY",
+      "ERASE"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué función de PHP se utiliza para contar la longitud de una cadena?",
+    "options": [
+      "count()",
+      "sizeof()",
+      "strlen()",
+      "length()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "En un entorno de desarrollo con Docker, ¿qué archivo se utiliza para definir los servicios, redes y volúmenes que componen una aplicación multi-contenedor?",
+    "options": [
+      "Dockerfile",
+      "docker-compose.yml",
+      "package.json",
+      "Docker-config"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es el propósito de la función mysqli_fetch_all() en PHP?",
+    "options": [
+      "Obtener una sola fila del conjunto de resultados.",
+      "Obtener todas las filas del conjunto de resultados como un array multidimensional.",
+      "Obtener el número total de filas.",
+      "Liberar la memoria asociada al conjunto de resultados."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué tipo de relación se establece típicamente en una base de datos SQL entre las tablas Clientes y Pedidos?",
+    "options": [
+      "Uno a uno (1:1).",
+      "Uno a muchos (1:N).",
+      "Muchos a muchos (N:M).",
+      "No hay relación directa."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la función principal de un sistema de plantillas como Twig o Blade?",
+    "options": [
+      "Gestionar las conexiones a la base de datos.",
+      "Separar la lógica de negocio de la lógica de presentación en las vistas.",
+      "Realizar pruebas de integración continua.",
+      "Optimizar el rendimiento de las consultas SQL."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué función de PHP se utiliza para ejecutar una consulta SQL y devolver un objeto de resultados (para SELECT) o true/false (para INSERT, UPDATE, DELETE)?",
+    "options": [
+      "mysqli_connect()",
+      "mysqli_prepare()",
+      "mysqli_query()",
+      "mysqli_stmt_execute()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "En JavaScript, ¿qué valor representa una condición que no es verdadera?",
+    "options": [
+      "null",
+      "0",
+      "\"\" (cadena vacía)",
+      "Todos los anteriores (y undefined, NaN) son valores \"falsy\"."
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Cuál es la principal ventaja del formato JSON sobre XML para APIs web modernas?",
+    "options": [
+      "Es más legible por humanos.",
+      "Soporta comentarios.",
+      "Es más ligero y fácil de parsear en JavaScript.",
+      "Es un estándar más antiguo y establecido."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué función se utiliza en PHP para comprobar si existe un archivo o directorio?",
+    "options": [
+      "exist()",
+      "file_exists()",
+      "is_file()",
+      "is_dir()"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué operador se utiliza para concatenar cadenas en PHP?",
     "options": [
       "+",
       "&",
-      ". (punto)",
-      ", (coma)"
+      ".",
+      ","
     ],
     "correct": "c"
   },
   {
-    "text": "¿Qué función comprueba si un archivo existe en PHP?",
+    "text": "¿Cuál es la principal característica de un bucle for?",
     "options": [
-      "file_exists()",
-      "is_file()",
-      "exist_file()",
-      "file_check()"
-    ],
-    "correct": "a"
-  },
-  {
-    "text": "¿Qué función se usa para comprobar si una variable está definida en PHP?",
-    "options": [
-      "empty()",
-      "is_null()",
-      "isset()",
-      "defined()"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Con qué funciones podemos saber cuántos elementos tiene un array en PHP?",
-    "options": [
-      "count() y length()",
-      "count() y sizeof()",
-      "size() y length()",
-      "num() y count()"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué función devuelve el número de filas de un resultado (resultset) en MySQLi?",
-    "options": [
-      "mysqli_num_fields()",
-      "mysqli_count_rows()",
-      "mysqli_num_rows()",
-      "mysqli_rows_count()"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué instrucción se usa para incluir un archivo PHP y detiene la ejecución si no existe dicho archivo, provocando un error fatal?",
-    "options": [
-      "include",
-      "include_once",
-      "require_once",
-      "require"
+      "La condición se verifica después de ejecutar el bloque de código.",
+      "Es la única forma de recorrer un array.",
+      "Se utiliza cuando el número de iteraciones no se conoce de antemano.",
+      "La inicialización, condición y actualización se definen en una sola línea."
     ],
     "correct": "d"
   },
   {
-    "text": "¿Qué función devuelve el último ID insertado en una tabla con AUTO_INCREMENT en PHP?",
+    "text": "Según el temario, ¿qué base de datos NoSQL es conocida por su modelo de documentos (document-store)?",
     "options": [
-      "mysqli_last_id()",
-      "mysqli_insert_id()",
-      "mysqli_last_inserted()",
-      "mysqli_id()"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué función se utiliza en PHP para convertir una cadena a minúsculas?",
-    "options": [
-      "strtoupper()",
-      "ucfirst()",
-      "strtolower()",
-      "lcfirst()"
+      "MySQL",
+      "PostgreSQL",
+      "MongoDB",
+      "Redis"
     ],
     "correct": "c"
   },
   {
-    "text": "¿Qué función permite incluir un archivo solo una vez en PHP?",
+    "text": "En la arquitectura de una aplicación web que sigue el patrón MVC, ¿dónde residen típicamente las consultas a la base de datos?",
     "options": [
-      "include",
-      "require",
-      "include_once",
-      "require_all"
+      "En la Vista.",
+      "En el Controlador.",
+      "En el Modelo.",
+      "En el archivo de rutas (Router)."
     ],
     "correct": "c"
   },
   {
-    "text": "¿Qué tipo de dato devuelve mysqli_query() cuando la consulta es SELECT?",
+    "text": "¿Qué hace la función file_get_contents() en PHP?",
     "options": [
-      "Array",
-      "Boolean",
-      "Objeto resultado (resultset)",
-      "String"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué operador lógico representa \"AND\" en PHP?",
-    "options": [
-      "||",
-      "!",
-      "&&",
-      "AND"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "Un archivo con extensión .php puede contener:",
-    "options": [
-      "Solo código PHP",
-      "Solo etiquetas HTML",
-      "Etiquetas HTML y código PHP",
-      "Solo código JavaScript"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué permite hacer la función mysqli_real_escape_string() en PHP?",
-    "options": [
-      "Escapar caracteres especiales para evitar inyección SQL",
-      "Codificar una cadena en base64",
-      "Convertir caracteres especiales en entidades HTML",
-      "Eliminar espacios en blanco de una cadena"
+      "Lee el contenido de un archivo en una cadena.",
+      "Escribe una cadena en un archivo.",
+      "Obtiene información sobre el archivo (tamaño, permisos).",
+      "Abre un archivo para lectura y escritura."
     ],
     "correct": "a"
   },
   {
-    "text": "¿Qué operador compara contenido y tipo de dato en PHP?",
+    "text": "¿Cuál es la función principal de un balanceador de carga?",
     "options": [
-      "==",
-      "=",
-      "!==",
-      "==="
+      "Comprimir las respuestas del servidor para ahorrar ancho de banda.",
+      "Cifrar la comunicación entre el cliente y el servidor.",
+      "Distribuir el tráfico entrante entre múltiples servidores para escalar la aplicación.",
+      "Almacenar en caché las páginas web más populares."
     ],
-    "correct": "d"
+    "correct": "c"
   },
   {
-    "text": "¿Qué función se utiliza para cerrar una conexión de MySQL en PHP?",
+    "text": "¿Qué método se utiliza en un objeto CallableStatement de JDBC para registrar el tipo de un parámetro de salida (OUT) de un procedimiento almacenado?",
     "options": [
-      "mysql_close()",
-      "mysqli_close()",
-      "mysql_disconnect()",
-      "mysqli_disconnect()"
+      "setOutParameter()",
+      "registerOutParameter()",
+      "setObject()",
+      "getOutput()"
     ],
     "correct": "b"
   },
   {
-    "text": "¿Qué método HTTP se utiliza normalmente para enviar datos de un formulario de forma segura?",
+    "text": "¿Cuál es un ejemplo de un formato de redifusión de contenido (sindicación) basado en XML?",
     "options": [
-      "GET",
-      "POST",
-      "PUT",
-      "DELETE"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "En un formulario para subir archivos al servidor, ¿qué método debemos utilizar?",
-    "options": [
-      "GET",
-      "POST",
-      "PUT",
-      "DELETE"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "La última línea de una función (antes del cierre con la llave) debe ser:",
-    "options": [
-      "exit",
-      "break",
-      "return",
-      "continue"
+      "HTML",
+      "JSON",
+      "RSS",
+      "CSV"
     ],
     "correct": "c"
   },
   {
-    "text": "¿Qué función protege contra inyecciones SQL al escapar caracteres especiales?",
+    "text": "¿Qué función de PHP se utiliza para enviar una cabecera HTTP cruda, como para una redirección o para especificar el tipo de contenido?",
     "options": [
-      "htmlspecialchars()",
-      "addslashes()",
-      "mysqli_real_escape_string()",
-      "strip_tags()"
+      "send_header()",
+      "http_response_code()",
+      "header()",
+      "redirect()"
     ],
     "correct": "c"
   },
   {
-    "text": "Al subir archivos al servidor, ¿en qué unidad se mide el tamaño del archivo?",
+    "text": "¿Qué es una closure o clausura en JavaScript?",
     "options": [
-      "Kilobytes",
-      "Megabytes",
-      "Bytes",
-      "Gigabytes"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué función se utiliza para obtener una fila de resultados solo como un array asociativo en PHP?",
-    "options": [
-      "mysqli_fetch_array()",
-      "mysqli_fetch_row()",
-      "mysqli_fetch_assoc()",
-      "mysqli_fetch_object()"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "A la hora de enviar un formulario de tipo login, ¿qué método debemos utilizar?",
-    "options": [
-      "GET",
-      "POST",
-      "PUT",
-      "DELETE"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué función mueve un archivo subido al servidor desde su ubicación temporal?",
-    "options": [
-      "copy()",
-      "move()",
-      "move_uploaded_file()",
-      "upload_file()"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué función elimina espacios en blanco al inicio y final de una cadena?",
-    "options": [
-      "strip_tags()",
-      "htmlspecialchars()",
-      "trim()",
-      "strlen()"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué función se debe utilizar en PHP para conectarse a una base de datos MySQL?",
-    "options": [
-      "mysql_connect()",
-      "mysqli_connect()",
-      "mysql_connection()",
-      "mysqli_connection()"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué sentencia SQL se utiliza para modificar datos existentes en una tabla?",
-    "options": [
-      "ALTER",
-      "MODIFY",
-      "UPDATE",
-      "CHANGE"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué operador se utiliza para negar una condición en PHP?",
-    "options": [
-      "&&",
-      "||",
-      "!",
-      "NOT"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "¿Qué función se utiliza para obtener una fila de resultados como un array asociativo y numérico?",
-    "options": [
-      "mysqli_fetch_assoc()",
-      "mysqli_fetch_row()",
-      "mysqli_fetch_array()",
-      "mysqli_fetch_object()"
-    ],
-    "correct": "c"
-  },
-  {
-    "text": "Para redirigir el flujo del programa al archivo compras.php utilizamos:",
-    "options": [
-      "redirect(\"compras.php\");",
-      "header(\"location:compras.php\");",
-      "location(\"compras.php\");",
-      "move(\"compras.php\");"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Qué tipo de error detiene totalmente la ejecución del script en PHP?",
-    "options": [
-      "Notice",
-      "Warning",
-      "Fatal error",
-      "Deprecated"
+      "Una función declarada dentro de un bucle.",
+      "Una función que no devuelve ningún valor.",
+      "Una función que tiene acceso al ámbito de la función que la contiene, incluso después de que esa función haya terminado de ejecutarse.",
+      "Una función anónima que se pasa como argumento a otra función."
     ],
     "correct": "c"
   },
@@ -2370,102 +1140,862 @@
     "correct": "c"
   },
   {
-    "text": "¿Qué tipo de bucle se ejecuta al menos una vez?",
+    "text": "¿Cuál es el propósito de las pruebas de estrés (stress testing)?",
     "options": [
-      "for",
-      "while",
-      "foreach",
-      "do-while"
+      "Verificar la funcionalidad correcta de la aplicación.",
+      "Medir la usabilidad de la interfaz de usuario.",
+      "Determinar el punto de quiebre de la aplicación y cómo se comporta bajo condiciones extremas.",
+      "Validar la integración con servicios externos."
     ],
-    "correct": "d"
+    "correct": "c"
   },
   {
-    "text": "¿Qué operador lógico representa \"OR\" en PHP?",
+    "text": "¿Qué sentencia SQL se utiliza para crear una nueva tabla en una base de datos?",
     "options": [
-      "&&",
-      "||",
-      "!",
-      "AND"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "Queremos subir un archivo al servidor. ¿Cómo obtenemos el nombre original del archivo?",
-    "options": [
-      "$_FILES['tmp_name']",
-      "$_FILES['size']",
-      "$_FILES['type']",
-      "$_FILES['name']"
-    ],
-    "correct": "d"
-  },
-  {
-    "text": "Las funciones hash generan un resumen de longitud fija no reversible. ¿Cómo se aprovecha esta característica en los sistemas de almacenamiento de credenciales para garantizar la seguridad de las contraseñas?",
-    "options": [
-      "Almacenando la contraseña en texto plano junto con el hash",
-      "Almacenando solo el resumen de la contraseña, ya que es irreversible y su comparación con un nuevo resumen valida la contraseña sin exponerla",
-      "Almacenando la contraseña cifrada con clave simétrica",
-      "Almacenando la contraseña en un archivo externo"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es uno de los principales beneficios de la Integración Continua (CI)?",
-    "options": [
-      "La automatización del despliegue en producción",
-      "La detección y resolución temprana de errores al integrar y probar los cambios de código con frecuencia",
-      "La eliminación de pruebas de software",
-      "La reducción del número de desarrolladores necesarios"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es la ventaja principal de utilizar AJAX (Asynchronous JavaScript and XML) para la generación dinámica de interfaces?",
-    "options": [
-      "Permite ejecutar código PHP en el navegador",
-      "Permite a las páginas web enviar y recibir datos del servidor de forma asíncrona, actualizando partes de la página sin necesidad de recargarla completamente",
-      "Elimina la necesidad de usar CSS",
-      "Reemplaza completamente al protocolo HTTP"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es una diferencia fundamental entre SOAP y REST?",
-    "options": [
-      "SOAP es más rápido que REST",
-      "SOAP intercambia mensajes en XML con un estándar estricto, mientras que REST se basa en HTTP y suele usar formatos más ligeros como JSON",
-      "SOAP solo funciona con PHP y REST solo con Java",
-      "SOAP es un protocolo y REST es un lenguaje de programación"
-    ],
-    "correct": "b"
-  },
-  {
-    "text": "¿Cuál es el propósito principal de AJAX en la generación dinámica de páginas web interactivas?",
-    "options": [
-      "Permitir que partes de una página web se actualicen de manera asincrónica, intercambiando datos con el servidor sin necesidad de recargar la página completa",
-      "Reemplazar completamente a JavaScript",
-      "Eliminar la necesidad de usar HTML",
-      "Mejorar la velocidad de carga inicial de la página"
+      "CREATE TABLE",
+      "NEW TABLE",
+      "ALTER TABLE",
+      "ADD TABLE"
     ],
     "correct": "a"
   },
   {
-    "text": "¿Qué es el Document Object Model (DOM) y por qué es crucial su manipulación en el desarrollo web moderno?",
+    "text": "¿Qué función de PHP se usa para convertir una cadena JSON en una variable de PHP (array u objeto)?",
     "options": [
-      "Es un lenguaje de programación del lado del servidor",
-      "Es una representación estructurada de los elementos HTML de una página web, y su manipulación dinámica permite cambiar el contenido, la estructura y el estilo de la página en tiempo real",
-      "Es un tipo de base de datos NoSQL",
-      "Es un framework de JavaScript"
+      "json_decode()",
+      "json_encode()",
+      "json_parse()",
+      "json_serialize()"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es una de las principales funciones de un servidor web?",
+    "options": [
+      "Ejecutar código JavaScript del lado del cliente.",
+      "Almacenar y gestionar bases de datos relacionales.",
+      "Aceptar peticiones HTTP y servir respuestas (como páginas HTML).",
+      "Compilar lenguajes de programación a código máquina."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "En PHP, ¿cómo se accede a una variable de sesión que se ha guardado previamente con el nombre usuario_id?",
+    "options": [
+      "$usuario_id",
+      "$_GET['usuario_id']",
+      "$_SESSION['usuario_id']",
+      "$_COOKIE['usuario_id']"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "Según el temario, ¿qué framework de PHP es conocido por su sintaxis expresiva y su sistema de plantillas llamado Blade?",
+    "options": [
+      "Symfony",
+      "CodeIgniter",
+      "Laravel",
+      "CakePHP"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué método se utiliza en un objeto PreparedStatement de JDBC para ejecutar una consulta SELECT?",
+    "options": [
+      "execute()",
+      "executeUpdate()",
+      "executeQuery()",
+      "runQuery()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es la diferencia entre GET y POST?",
+    "options": [
+      "GET es más seguro que POST.",
+      "GET envía los datos en la URL, mientras que POST los envía en el cuerpo de la solicitud.",
+      "POST solo se puede usar para formularios, GET no.",
+      "GET no puede enviar datos al servidor."
     ],
     "correct": "b"
   },
   {
-    "text": "¿Qué característica es típica de una Aplicación de Una Sola Página (SPA) y es soportada por frameworks como React o Angular?",
+    "text": "¿Qué función de PHP se utiliza para escapar caracteres especiales en una cadena para su uso en una consulta SQL (estilo antiguo mysql_*)?",
     "options": [
-      "Requiere recargar la página completa en cada interacción",
-      "Manejar la navegación entre diferentes vistas y estados sin requerir una recarga completa de la página",
-      "No utiliza JavaScript",
-      "Solo funciona sin conexión a internet"
+      "mysqli_real_escape_string()",
+      "addslashes()",
+      "mysql_real_escape_string()",
+      "htmlspecialchars()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "En el contexto de Git, ¿qué comando se usa para descargar un repositorio remoto por primera vez?",
+    "options": [
+      "git pull",
+      "git fetch",
+      "git clone",
+      "git checkout"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué tipo de datos en programación representa un valor verdadero o falso?",
+    "options": [
+      "Entero",
+      "Carácter",
+      "Booleano",
+      "Punto flotante"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué arquitectura de aplicación web se caracteriza por tener una capa de presentación (cliente), una capa de lógica de negocio y una capa de datos?",
+    "options": [
+      "Dos niveles.",
+      "Tres niveles.",
+      "Cliente-Servidor.",
+      "Monolítica."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué método de array en JavaScript ejecuta una función sobre cada elemento y devuelve un nuevo array con los elementos que cumplen una condición?",
+    "options": [
+      "map()",
+      "forEach()",
+      "reduce()",
+      "filter()"
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Qué función de PHP se utiliza para obtener el último ID generado por una columna AUTO_INCREMENT en una consulta INSERT?",
+    "options": [
+      "mysqli_last_id()",
+      "mysqli_insert_id()",
+      "mysqli_inserted_id()",
+      "mysqli_id()"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es una de las funcionalidades clave de un sistema de CI/CD?",
+    "options": [
+      "Automatizar el proceso de pruebas y despliegue.",
+      "Servir como editor de código para los desarrolladores.",
+      "Gestionar las bases de datos en producción.",
+      "Diseñar la interfaz de usuario de la aplicación."
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Qué operador lógico en PHP representa \"O\" (OR)?",
+    "options": [
+      "&",
+      "&&",
+      "||",
+      "!"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es la principal ventaja del protocolo FastCGI sobre CGI?",
+    "options": [
+      "Es más fácil de configurar.",
+      "Es compatible con más lenguajes de programación.",
+      "Es más seguro porque aísla los procesos.",
+      "Mantiene procesos persistentes, mejorando el rendimiento."
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Qué método de JavaScript se utiliza para realizar una solicitud HTTP asíncrona en el navegador antes de la existencia generalizada de Fetch API?",
+    "options": [
+      "HttpRequest",
+      "AjaxRequest",
+      "XMLHttpRequest",
+      "AsyncRequest"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cómo se define una constante en PHP?",
+    "options": [
+      "$const NAME = \"valor\";",
+      "const NAME = \"valor\"; o define(\"NAME\", \"valor\");",
+      "let NAME = \"valor\";",
+      "constant NAME = \"valor\";"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es el nivel de aislamiento por defecto en muchos sistemas de bases de datos como PostgreSQL?",
+    "options": [
+      "READ UNCOMMITTED",
+      "READ COMMITTED",
+      "REPEATABLE READ",
+      "SERIALIZABLE"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué función de PHP se utiliza para verificar si una variable está vacía (\"\", 0, \"0\", NULL, false, o un array vacío)?",
+    "options": [
+      "isset()",
+      "is_null()",
+      "empty()",
+      "defined()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "En el contexto de APIs, ¿qué significa REST?",
+    "options": [
+      "Remote State Transfer.",
+      "Representational State Transfer.",
+      "Real-time Entity Synchronization Technology.",
+      "Reliable Endpoint Service Transport."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "Según el temario, ¿qué herramienta se menciona para la orquestación de contenedores?",
+    "options": [
+      "Docker",
+      "Jenkins",
+      "Kubernetes",
+      "Ansible"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "En POO, el mecanismo por el cual una clase puede heredar propiedades y métodos de otra clase se llama:",
+    "options": [
+      "Encapsulación.",
+      "Polimorfismo.",
+      "Abstracción.",
+      "Herencia."
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Qué significa SQLi?",
+    "options": [
+      "Structured Query Language Interface.",
+      "Secure Query Language integration.",
+      "SQL Injection, un tipo de vulnerabilidad de seguridad.",
+      "Sequential Query Language index."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué método de PHP se usa para eliminar una variable?",
+    "options": [
+      "delete($var)",
+      "remove($var)",
+      "destroy($var)",
+      "unset($var)"
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Cuál es el propósito de la función md5() en PHP?",
+    "options": [
+      "Encriptar una cadena de forma segura para almacenar contraseñas.",
+      "Calcular el hash MD5 de una cadena, no recomendado para seguridad por ser débil.",
+      "Codificar una cadena para su uso en URL.",
+      "Generar un identificador único universal (UUID)."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué método de la interfaz HttpServletResponse en Java Servlets se utiliza para redirigir al cliente a otra URL?",
+    "options": [
+      "redirect()",
+      "forward()",
+      "sendRedirect()",
+      "dispatch()"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "En el contexto de aplicaciones web, ¿qué es un \"middleware\"?",
+    "options": [
+      "Un tipo de base de datos NoSQL.",
+      "Una capa de software que actúa como intermediario entre diferentes aplicaciones o componentes.",
+      "Un framework de JavaScript para el frontend.",
+      "Un protocolo de comunicación para WebSockets."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué función de PHP se usa para detener la ejecución del script y mostrar un mensaje?",
+    "options": [
+      "stop()",
+      "exit() o die()",
+      "return()",
+      "break()"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué es JWT (JSON Web Token)?",
+    "options": [
+      "Un tipo de base de datos para almacenar JSON.",
+      "Un estándar para crear tokens de acceso seguros y autónomos que contienen información (claims).",
+      "Un framework de Java para probar aplicaciones web.",
+      "Un protocolo de autenticación similar a OAuth."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "Si no se especifica un index en un array en PHP, ¿qué tipo de array se crea por defecto?",
+    "options": [
+      "Asociativo.",
+      "Multidimensional.",
+      "Indexado numéricamente empezando desde 0.",
+      "Indexado numéricamente empezando desde 1."
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué método de PHP se usa para incluir un archivo y emitirá una advertencia si no existe, pero el script continuará?",
+    "options": [
+      "require",
+      "require_once",
+      "include",
+      "import"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "En el contexto de la seguridad de aplicaciones web, un ataque CSRF (Cross-Site Request Forgery) consiste en:",
+    "options": [
+      "Inyectar scripts maliciosos en una página web.",
+      "Engañar a un usuario autenticado para que realice acciones no deseadas en una aplicación web en la que está logueado.",
+      "Manipular consultas SQL para acceder a datos no autorizados.",
+      "Interceptar la comunicación entre el cliente y el servidor."
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué símbolo en PHP se utiliza para indicar que un parámetro de función se pasa por referencia?",
+    "options": [
+      "*",
+      "&",
+      "%",
+      "@"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué método se utiliza para aplicar un commit a una transacción en PDO (PHP Data Objects)?",
+    "options": [
+      "PDO::commit()",
+      "PDO::rollBack()",
+      "PDO::endTransaction()",
+      "PDO::exec('COMMIT')"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $a = 5; $b = 10; echo $a + $b;",
+    "options": [
+      "510",
+      "15",
+      "Error de sintaxis",
+      "5+10"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $nombre = \"Juan\"; echo \"Hola, $nombre\";",
+    "options": [
+      "Hola, $nombre",
+      "Hola, Juan",
+      "Error: variable indefinida",
+      "Hola, {'nombre'}"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $contador = 0; while($contador < 3) { echo $contador; $contador++; }",
+    "options": [
+      "012",
+      "123",
+      "0 1 2",
+      "0123"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $colores = [\"rojo\", \"verde\", \"azul\"]; echo count($colores);",
+    "options": [
+      "rojo,verde,azul",
+      "3",
+      "Array",
+      "0"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $x = 10; $y = \"10\"; if($x == $y) { echo \"igual\"; } else { echo \"diferente\"; }",
+    "options": [
+      "igual",
+      "diferente",
+      "Error",
+      "igualdiferente"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $texto = \"    Hola Mundo    \"; echo strlen(trim($texto));",
+    "options": [
+      "15",
+      "10",
+      "12",
+      "9"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $edad = 18; if($edad >= 18) { echo \"Mayor de edad\"; } else { echo \"Menor de edad\"; }",
+    "options": [
+      "Menor de edad",
+      "Mayor de edad",
+      "Error",
+      "Nada"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? for($i = 1; $i <= 3; $i++) { echo $i * 2 . \" \"; }",
+    "options": [
+      "1 2 3",
+      "2 4 6",
+      "2 4 6 8",
+      "1 4 9"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? function sumar($a, $b) { return $a + $b; } echo sumar(5, 7);",
+    "options": [
+      "57",
+      "12",
+      "5+7",
+      "Error"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $frutas = [\"manzana\", \"pera\", \"uva\"]; echo $frutas[1];",
+    "options": [
+      "manzana",
+      "pera",
+      "uva",
+      "Error"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $a = 5; $b = 3; echo $a . $b;",
+    "options": [
+      "8",
+      "53",
+      "5+3",
+      "Error"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $numero = 7; if($numero % 2 == 0) { echo \"Par\"; } else { echo \"Impar\"; }",
+    "options": [
+      "Par",
+      "Impar",
+      "Error",
+      "Nada"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $i = 0; do { echo $i; $i++; } while($i < 0);",
+    "options": [
+      "Nada",
+      "0",
+      "1",
+      "Bucle infinito"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $datos = [\"nombre\" => \"Ana\", \"edad\" => 25]; echo $datos[\"nombre\"];",
+    "options": [
+      "Ana",
+      "25",
+      "nombre",
+      "Error"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $x = 8; $y = 12; if($x > 10 && $y > 10) { echo \"Ambos mayores\"; } else { echo \"Uno o ninguno es mayor\"; }",
+    "options": [
+      "Ambos mayores",
+      "Uno o ninguno es mayor",
+      "Error",
+      "8 12"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $mensaje = \"Hola\"; $mensaje .= \" Mundo\"; echo $mensaje;",
+    "options": [
+      "Hola",
+      "Mundo",
+      "Hola Mundo",
+      "Error"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $valor = 0; if(empty($valor)) { echo \"vacío\"; } else { echo \"no vacío\"; }",
+    "options": [
+      "vacío",
+      "no vacío",
+      "Error",
+      "0"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $numeros = [10, 20, 30, 40]; echo $numeros[3];",
+    "options": [
+      "10",
+      "20",
+      "30",
+      "40"
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? function saludar() { return \"Buenos días\"; } $resultado = saludar(); echo $resultado;",
+    "options": [
+      "saludar()",
+      "Buenos días",
+      "Error",
+      "Nada"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $a = 10; $b = \"10\"; if($a === $b) { echo \"idénticos\"; } else { echo \"no idénticos\"; }",
+    "options": [
+      "idénticos",
+      "no idénticos",
+      "Error",
+      "10"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $contador = 1; while($contador <= 3) { echo $contador . \",\"; $contador++; }",
+    "options": [
+      "1,2,3,",
+      "1,2,3",
+      "1,2,3,4",
+      "2,3,4"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $edad = 15; $mensaje = ($edad >= 18) ? \"Adulto\" : \"Menor\"; echo $mensaje;",
+    "options": [
+      "Adulto",
+      "Menor",
+      "15",
+      "Error"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $notas = [8, 7, 9]; $suma = 0; foreach($notas as $nota) { $suma += $nota; } echo $suma / count($notas);",
+    "options": [
+      "8",
+      "24",
+      "8.0",
+      "7"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? function incrementar(&$valor) { $valor++; } $num = 5; incrementar($num); echo $num;",
+    "options": [
+      "5",
+      "6",
+      "Error",
+      "Nada"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $cadena = \"PHP es genial\"; echo strtoupper($cadena);",
+    "options": [
+      "php es genial",
+      "PHP ES GENIAL",
+      "Php Es Genial",
+      "PHP es genial"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? for($i = 0; $i <= 10; $i+=2) { echo $i . \" \"; }",
+    "options": [
+      "0 2 4 6 8 10",
+      "2 4 6 8 10",
+      "0 1 2 3 4 5 6 7 8 9 10",
+      "0 2 4 6 8"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $valor = 5; switch($valor) { case 1: echo \"uno\"; break; case 5: echo \"cinco\"; break; default: echo \"otro\"; }",
+    "options": [
+      "uno",
+      "cinco",
+      "otro",
+      "Error"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $numeros = [1, 2, 3, 4, 5]; array_push($numeros, 6); echo count($numeros);",
+    "options": [
+      "5",
+      "6",
+      "1,2,3,4,5,6",
+      "15"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $a = \"Hola\"; $b = \"hola\"; if(strtolower($a) == strtolower($b)) { echo \"iguales\"; } else { echo \"diferentes\"; }",
+    "options": [
+      "iguales",
+      "diferentes",
+      "Error",
+      "Hola hola"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $numero = 2; $resultado = $numero ** 3; echo $resultado;",
+    "options": [
+      "6",
+      "8",
+      "9",
+      "2**3"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $texto = \"   PHP   \"; echo trim($texto); echo \"-\"; echo ltrim($texto);",
+    "options": [
+      "PHP-   PHP",
+      "PHP-PHP",
+      "PHP   -   PHP",
+      "PHP   -PHP"
+    ],
+    "correct": "d"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $x = 5; $y = 10; if($x > 3 XOR $y > 15) { echo \"Verdadero\"; } else { echo \"Falso\"; }",
+    "options": [
+      "Verdadero",
+      "Falso",
+      "Error",
+      "5 10"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $persona = [\"nombre\" => \"Carlos\", \"edad\" => 30]; echo $persona[\"nombre\"] . \" tiene \" . $persona[\"edad\"] . \" años\";",
+    "options": [
+      "Carlos tiene 30 años",
+      "nombre tiene edad años",
+      "Array tiene Array años",
+      "Error"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? function calcular($a, $b = 5) { return $a * $b; } echo calcular(3);",
+    "options": [
+      "3",
+      "5",
+      "15",
+      "Error"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $bandera = true; echo $bandera ? \"Sí\" : \"No\";",
+    "options": [
+      "Sí",
+      "No",
+      "1",
+      "true"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $i = 0; while($i < 3) { $i++; if($i == 2) { continue; } echo $i; }",
+    "options": [
+      "123",
+      "13",
+      "12",
+      "23"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $frase = \"El lenguaje PHP\"; echo substr($frase, 3, 8);",
+    "options": [
+      "lenguaje",
+      "El leng",
+      "lenguaj",
+      "lenguaje PHP"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $numeros = [5, 3, 8, 1]; sort($numeros); echo $numeros[0];",
+    "options": [
+      "5",
+      "1",
+      "8",
+      "3"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? function prueba() { static $contador = 0; $contador++; return $contador; } echo prueba() . \"-\"; echo prueba() . \"-\"; echo prueba();",
+    "options": [
+      "1-2-3",
+      "1-1-1",
+      "0-1-2",
+      "Error"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $a = \"5\"; $b = 5; echo $a + $b;",
+    "options": [
+      "55",
+      "10",
+      "5+5",
+      "Error"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $color = \"azul\"; switch($color) { case \"rojo\": echo \"Rojo como la pasión\"; break; case \"verde\": echo \"Verde como la naturaleza\"; break; default: echo \"Color no reconocido\"; }",
+    "options": [
+      "Rojo como la pasión",
+      "Verde como la naturaleza",
+      "Color no reconocido",
+      "Error"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $numeros = [1, 2, 3]; $suma = 0; for($i = 0; $i < count($numeros); $i++) { $suma += $numeros[$i]; } echo $suma;",
+    "options": [
+      "1 2 3",
+      "6",
+      "123",
+      "3"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $cadena = \"Hola Mundo\"; $partes = explode(\" \", $cadena); echo $partes[0];",
+    "options": [
+      "Hola Mundo",
+      "Hola",
+      "Mundo",
+      "Array"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $x = 7; $y = 3; echo $x % $y;",
+    "options": [
+      "2",
+      "1",
+      "3",
+      "0"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $valor = null; if(isset($valor)) { echo \"definida\"; } else { echo \"no definida\"; }",
+    "options": [
+      "definida",
+      "no definida",
+      "Error",
+      "null"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $matriz = [[1, 2], [3, 4]]; echo $matriz[1][0];",
+    "options": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": "c"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? function despedir($nombre = \"amigo\") { return \"Adiós, \" . $nombre; } echo despedir(\"Carlos\") . \" - \"; echo despedir();",
+    "options": [
+      "Adiós, amigo - Adiós, amigo",
+      "Adiós, Carlos - Adiós, amigo",
+      "Adiós, Carlos - Adiós,",
+      "Error"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $dias = [\"Lun\", \"Mar\", \"Mié\"]; unset($dias[1]); echo count($dias);",
+    "options": [
+      "3",
+      "2",
+      "1",
+      "0"
+    ],
+    "correct": "b"
+  },
+  {
+    "text": "¿Qué mostrará el siguiente código? $numero = 2; echo $numero++; echo \"-\"; echo ++$numero;",
+    "options": [
+      "2-4",
+      "3-3",
+      "2-3",
+      "3-4"
+    ],
+    "correct": "a"
+  },
+  {
+    "text": "¿Cuál es la salida del siguiente código? $texto = \"abcdef\"; echo str_replace(\"cde\", \"XYZ\", $texto);",
+    "options": [
+      "abcdef",
+      "abXYZf",
+      "XYZ",
+      "abXYZ"
     ],
     "correct": "b"
   }
